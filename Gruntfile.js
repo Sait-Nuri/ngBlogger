@@ -16,6 +16,27 @@ module.exports = function(grunt) {
         // this way we can use things like name and version (pkg.name)
         pkg: grunt.file.readJSON('package.json'),
 
+        copy: {
+            main: {
+                files: [
+                    {   // copy js files from bower to asset folder
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        cwd: 'bower_components/',
+                        src: ['*/*.min.js'],
+                        dest: 'app/dest/assets/js'
+                    },
+                    {   // copy css files from bower to asset folder
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        cwd: 'bower_components/',
+                        src: ['*/*.min.css'],
+                        dest: 'app/dest/assets/css'
+                    }
+                ]
+            }
+        },
+
         // configure jshint to validate js files -----------------------------------
         jshint: {
             options: {
@@ -32,13 +53,18 @@ module.exports = function(grunt) {
                 banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             build: {
-                files: [{
-                    expand: true,    // allow dynamic building
-                    flatten: true,   // remove all unnecessary nesting
-                    src: 'app/src/js/*.js',  // source files mask
-                    dest: 'app/dest/js/',    // destination folder
-                    ext: '.min.js'   // replace .js to .min.js
-                }]
+                files: [
+                    {
+                        expand: true,    // allow dynamic building
+                        flatten: true,   // remove all unnecessary nesting
+                        src: 'app/src/assets/js/*.js',  // source files mask
+                        dest: 'app/dest/assets/js/',    // destination folder
+                        ext: '.min.js'   // replace .js to .min.js
+                    },
+                    {// minify index.js
+                        'app/dest/index.js':'app/src/index.js'
+                    }
+                ]
             }
         },
 
@@ -50,13 +76,55 @@ module.exports = function(grunt) {
             build: {
                 files: [{
                     expand: true,
-                    cwd: 'app/src/css',
+                    cwd: 'app/src/assets/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'app/dest/css',
+                    dest: 'app/dest/assets/css',
                     ext: '.min.css'
                 }]
             }
+        },
+
+        // Minify html files
+        htmlmin: {
+            options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+            },
+            build: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app/src/assets/html/',
+                        src: ['*.html'],
+                        dest: 'app/dest/assets/html'
+                    },
+                    {
+                        'app/dest/index.html':'app/src/index.html'
+                    }
+                ]
+            }
+        },
+
+        // Run node server
+        run: {
+            options: {
+                // Task-specific options go here.
+            },
+            target: {
+                cmd: 'node',
+                args: [
+                    'app/dest/index.js'
+                ]
+            }
+        },
+
+        // Will delete files for `build` target
+        // Will NOT delete files for `release` target
+        clean: {
+            build: ['app/dest']
         }
+
+
 
     });
 
@@ -71,7 +139,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-run');
+
 
     // ============= // CREATE TASKS ========== //
-    grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['clean' ,'copy' ,'jshint', 'uglify', 'cssmin', 'htmlmin', 'run']);
 };
