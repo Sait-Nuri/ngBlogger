@@ -32,6 +32,12 @@ module.exports = function(grunt) {
                         cwd: 'bower_components/',
                         src: ['*/*.min.css'],
                         dest: 'app/dest/assets/css'
+                    },
+                    {   // copy img file from src to dest
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        src: 'app/src/assets/img/*.svg',  // source files mask
+                        dest: 'app/dest/assets/img'    // destination folder
                     }
                 ]
             }
@@ -54,15 +60,18 @@ module.exports = function(grunt) {
             },
             build: {
                 files: [
-                    {
+                    {   // minify js assets
                         expand: true,    // allow dynamic building
                         flatten: true,   // remove all unnecessary nesting
                         src: 'app/src/assets/js/*.js',  // source files mask
                         dest: 'app/dest/assets/js/',    // destination folder
                         ext: '.min.js'   // replace .js to .min.js
                     },
-                    {// minify index.js
+                    {   // minify index.js
                         'app/dest/index.js':'app/src/index.js'
+                    },
+                    {   // minify and concat modules
+                        'app/dest/client/modules.min.js':['app/src/client/**/*.js']
                     }
                 ]
             }

@@ -7,6 +7,7 @@ var PORT = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/server'));
+app.use(express.static(__dirname + '/client'));
 
 app.use(bodyParser.urlencoded({
     extended: true

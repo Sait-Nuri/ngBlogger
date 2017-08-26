@@ -2,13 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NgBlogger</title>
 
     <link rel="stylesheet" href="css/angular-material.min.css">
     <link rel="stylesheet" href="css/style.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-    <body>
+    <body ng-app="myApp">
 
+        <div id="header" layout="row" layout-wrap layout-align="center">
+            <div flex-gt-sm="85" flex="100" id="header_content">
+                <div layout="row" layout-wrap style="height: 100%;">
+                    <div flex-gt-sm="15" hide show-gt-sm style="width: 180px; background-color: bisque">BOŞ</div>
+
+                    <div flex="noshrink" style="width: 300px;">
+                        Başlık Başlık Başlık Başlık Başlık
+                    </div>
+
+                    <div flex="20" hide-xs style="background-color: #b8cc24">Sosyal medya</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main_body" layout="row" layout-align="center">
+            <div flex-gt-sm="85" flex="100" id="body_wrapper">
+                <div layout="column" layout-wrap style="height: 100%;">
+                    <div layout="row" layout-xs="column" style="background-color: darkgray; color: white">
+                        <div id="floating_text" flex-sm="70" flex-gt-sm="80" style="height: 40px;">Floating Text Floating Text Floating Text </div>
+                        <div id="search_bar" flex-sm ="30" flex-gt-sm="20" style="background-color: white; height: 45px;" >
+                            <div layout="row" layout-wrap style="height: 100%;">
+                                <div flex style="height: 100%;">
+                                    <md-input-container class="inpsrc" md-no-float>
+                                        <input type="text" placeholder="Ara" style="height: 100%;">
+                                    </md-input-container>
+                                </div>
+                                <div flex="none" style="background-color: #6d85a9; height: 100%; width: 60px;">
+                                    <div layout="row" layout-align="center center" style="height: 100%;">
+                                        <md-button class="srcbtn" flex >
+                                            <md-icon md-svg-src="img/ic_search.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div id="body_container" layout-gt-sm="row" layout="column" layout-wrap>
+                            <div id="mobile_menu" hide-gt-sm flex="initial" style="height: 40px; background-color: #6d85a9;">Toggle Menu</div>
+
+                            <div id="left_menu" flex-gt-sm="15" hide show-gt-sm style="background-color: #9E9E9E;">
+                                <div style="margin-top: 3px;"></div>
+                                <div style="padding-left: 3px; padding-right: 3px;">
+                                    <div style="height: 30px; background-color: #444444">Başlık</div>
+                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
+                                </div>
+
+                                <div style="margin-top: 5px;"></div>
+                                <div style="padding-left: 3px; padding-right: 3px;">
+                                    <div style="height: 30px; background-color: #444444">Başlık</div>
+                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
+                                </div>
+                            </div>
+
+                            <div id="container" flex-gt-sm="65" flex style="background-color: #ddaa6a; ">container</div>
+                            <div id="right_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
+
+                                <div style="margin-top: 3px;"></div>
+                                <div style="padding-left: 3px; padding-right: 3px;">
+                                    <div style="height: 30px; background-color: #444444">Başlık</div>
+                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
+                                </div>
+
+                                <div style="margin-top: 5px;"></div>
+                                <div style="padding-left: 3px; padding-right: 3px;">
+                                    <div style="height: 30px; background-color: #444444">Başlık</div>
+                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" layout="row" layout-wrap>
+
+        </div>
 
         <script src="js/angular.min.js"></script>
         <script src="js/angular-animate.min.js"></script>
@@ -16,5 +96,6 @@
         <script src="js/angular-material.min.js"></script>
         <script src="js/angular-messages.min.js"></script>
 
+        <script src="modules.min.js"></script>
     </body>
 </html>
