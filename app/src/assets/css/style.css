@@ -1,9 +1,6 @@
 /* dist/css/pretty.css */
 
-body {
-    background: #b9b9b9;
-    color: #b9b9b9;
-}
+
 button {
     background: #8bc5ff;
 }
@@ -13,23 +10,19 @@ div {
 
 #header{
     height: 150px;
-    background-color: #9E9E9E;
 }
 
 #header_content{
-    background-color: #444444;
     height: 100%;
 }
 
 #main_body {
     height: 1000px;
     margin-top: 10px;
-    background-color: #8bc5ff;
 }
 
 #body_wrapper{
     height:100%;
-    background-color: #b8cc24;
 }
 
 #footer {
@@ -67,4 +60,13 @@ div {
 
 md-input-container .md-errors-spacer {
     min-height: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.padding-left-5{
+    padding-left: 5px;
 }

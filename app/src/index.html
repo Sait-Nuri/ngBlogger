@@ -9,93 +9,142 @@
     <link rel="stylesheet" href="css/style.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-    <body ng-app="myApp">
+<body ng-app="myApp" style="height: 100%; background-color: #9E9E9E;">
+    <div id="header" layout="row" layout-wrap layout-align="center">
+        <div id="header_content" flex-gt-md="85" flex="100">
+            <div layout="row" layout-wrap style="height: 100%;">
 
-        <div id="header" layout="row" layout-wrap layout-align="center">
-            <div flex-gt-sm="85" flex="100" id="header_content">
-                <div layout="row" layout-wrap style="height: 100%;">
-                    <div flex-gt-sm="15" hide show-gt-sm style="width: 180px; background-color: bisque">BOŞ</div>
-
-                    <div flex="noshrink" style="width: 300px;">
-                        Başlık Başlık Başlık Başlık Başlık
+                <div flex="none" hide show-gt-sm style="width: 180px; height: 100%;">
+                    <div layout="row" style="height:100%;">
+                        <div flex class="padded" md-whiteframe="3" style="background-color: bisque">
+                            <img src="img/cyber_safety.png" alt="cyber-security-icon">
+                        </div>
+                        <div flex="none" style="height: 100%; width:7px;"></div>
                     </div>
+                </div>
 
-                    <div flex="20" hide-xs style="background-color: #b8cc24">Sosyal medya</div>
+                <div flex class="padded" md-whiteframe="3" style="height: 100%; width: 100%;">
+                    <img flex src="img/banner.png" alt="banner" style="height: 100%;">
+                </div>
+
+                <div layout="row" flex="20" flex-sm="30" hide-xs style="height: 100%;" >
+                    <div flex="none" style="width: 7px; height: 100%;"></div>
+                    <div flex layout="column" layout-align="center" class="padded" md-whiteframe="1" style="height: 100%; ">
+                        <div flex="15" layout="row" layout-align="center" style="height: 100%; color: white; padding: 2px;"><h3>Follow Us</h3></div>
+                        <div flex="65" layout="column" layout-align="center" style="height: 100%;">
+                            <div flex="60" layout="column" style="height: 100%;">
+                                <div layout="row" layout-align="center center" style="height: 100%;">
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/facebook.png" alt="facebook"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/twitter.png" alt="twitter"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/gplus.png" alt="gplus"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/youtube.png" alt="youtube"></div>
+                                </div>
+                                <div layout="row" layout-align="center center" style="height: 100%;">
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/facebook.png" alt="facebook"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/twitter.png" alt="twitter"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/gplus.png" alt="gplus"></div>
+                                    <div style="height: 32px; width: 32px; padding: 2px;"><img src="img/youtube.png" alt="youtube"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div flex="20" style="background-color: #b8cc24;"></div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="main_body" layout="row" layout-align="center">
-            <div flex-gt-sm="85" flex="100" id="body_wrapper">
-                <div layout="column" layout-wrap style="height: 100%;">
-                    <div layout="row" layout-xs="column" style="background-color: darkgray; color: white">
-                        <div id="floating_text" flex-sm="70" flex-gt-sm="80" style="height: 40px;">Floating Text Floating Text Floating Text </div>
-                        <div id="search_bar" flex-sm ="30" flex-gt-sm="20" style="background-color: white; height: 45px;" >
-                            <div layout="row" layout-wrap style="height: 100%;">
-                                <div flex style="height: 100%;">
-                                    <md-input-container class="inpsrc" md-no-float>
-                                        <input type="text" placeholder="Ara" style="height: 100%;">
-                                    </md-input-container>
+    <div id="main_body" layout="row" layout-align="center" style="background-color: #9E9E9E;">
+        <div flex-gt-md="85" flex="100" id="body_wrapper">
+            <div layout="column" layout-wrap style="height: 100%;">
+                <div layout="row" layout-xs="column" >
+
+                    <div ng-controller="FloatTextController" id="floating_text" flex-sm="70" flex-gt-sm="80" style="height: 45px;">
+                        <p>{{text}}</p>
+                    </div>
+
+                    <div id="search_bar" flex-sm ="30" flex-gt-sm="20" class="padded" md-whiteframe="1" style="height: 45px; " >
+                        <div layout="row" layout-wrap style="height: 100%;">
+                            <div hide-xs flex="none" style="width: 7px; height: 100%;"></div>
+                            <div flex style="height: 100%; background-color: #fafafa">
+                                <md-input-container class="inpsrc" md-no-float>
+                                    <input type="text" placeholder="Ara" style="height: 100%;">
+                                </md-input-container>
+                            </div>
+                            <div flex="none" style="background-color: #6d85a9; height: 100%; width: 60px;">
+                                <div layout="row" layout-align="center center" style="height: 100%;">
+                                    <md-button class="srcbtn" aria-label="search bar" flex >
+                                        <md-icon md-svg-src="img/ic_search.svg"></md-icon>
+                                    </md-button>
                                 </div>
-                                <div flex="none" style="background-color: #6d85a9; height: 100%; width: 60px;">
-                                    <div layout="row" layout-align="center center" style="height: 100%;">
-                                        <md-button class="srcbtn" flex >
-                                            <md-icon md-svg-src="img/ic_search.svg"></md-icon>
-                                        </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div flex="none" style="height:7px;"></div>
+                <div flex style="height: 100%;">
+                    <div id="body_container" layout-gt-sm="row" layout="column" layout-wrap>
+                        <div id="mobile_menu" hide-gt-sm flex="initial" style="height: 40px; background-color: #6d85a9;">Toggle Menu</div>
+
+                        <div id="left_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E;">
+                            <div layout="row" style="height:100%;">
+                                <div flex style="height: 100%;">
+                                    <div class="padded" md-whiteframe="3" flex>
+                                        <div style="height: 30px; background-color: #444444"></div>
+                                        <div style="height: 150px; background-color: #fafafa"></div>
+                                    </div>
+
+                                    <div style="margin-top: 5px;"></div>
+                                    <div class="padded" md-whiteframe="3" flex>
+                                        <div style="height: 30px; background-color: #444444"></div>
+                                        <div style="height: 150px; background-color: #fafafa"></div>
+                                    </div>
+                                </div>
+                                <div flex="none" hide show-gt-sm style="width: 7px; height: 100%;">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="container" flex-gt-sm="60" flex style="background-color: #ddaa6a; ">
+                            <div id="slider_main">
+
+                            </div>
+                        </div>
+                        <div id="right_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
+                            <div layout="row" style="height: 100%;">
+                                <div flex="none" style="width: 7px; height: 100%;"></div>
+                                <div flex style="height: 100%;">
+                                    <div class="padded" md-whiteframe="3" flex>
+                                        <div style="height: 30px; background-color: #444444"></div>
+                                        <div style="height: 150px; background-color: #fafafa"></div>
+                                    </div>
+
+                                    <div style="margin-top: 5px;"></div>
+                                    <div class="padded" md-whiteframe="3" flex>
+                                        <div style="height: 30px; background-color: #444444"></div>
+                                        <div style="height: 150px; background-color: #fafafa"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div flex>
-                        <div id="body_container" layout-gt-sm="row" layout="column" layout-wrap>
-                            <div id="mobile_menu" hide-gt-sm flex="initial" style="height: 40px; background-color: #6d85a9;">Toggle Menu</div>
-
-                            <div id="left_menu" flex-gt-sm="15" hide show-gt-sm style="background-color: #9E9E9E;">
-                                <div style="margin-top: 3px;"></div>
-                                <div style="padding-left: 3px; padding-right: 3px;">
-                                    <div style="height: 30px; background-color: #444444">Başlık</div>
-                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
-                                </div>
-
-                                <div style="margin-top: 5px;"></div>
-                                <div style="padding-left: 3px; padding-right: 3px;">
-                                    <div style="height: 30px; background-color: #444444">Başlık</div>
-                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
-                                </div>
-                            </div>
-
-                            <div id="container" flex-gt-sm="65" flex style="background-color: #ddaa6a; ">container</div>
-                            <div id="right_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
-
-                                <div style="margin-top: 3px;"></div>
-                                <div style="padding-left: 3px; padding-right: 3px;">
-                                    <div style="height: 30px; background-color: #444444">Başlık</div>
-                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
-                                </div>
-
-                                <div style="margin-top: 5px;"></div>
-                                <div style="padding-left: 3px; padding-right: 3px;">
-                                    <div style="height: 30px; background-color: #444444">Başlık</div>
-                                    <div style="height: 150px; background-color: #fafafa">İçerik</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="footer" layout="row" layout-wrap>
+    <div id="footer" layout="row" layout-wrap>
 
-        </div>
+    </div>
 
-        <script src="js/angular.min.js"></script>
-        <script src="js/angular-animate.min.js"></script>
-        <script src="js/angular-aria.min.js"></script>
-        <script src="js/angular-material.min.js"></script>
-        <script src="js/angular-messages.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-material.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
 
-        <script src="modules.min.js"></script>
-    </body>
+    <script src="modules.min.js"></script>
+    <script src="controllers.min.js"></script>
+</body>
 </html>

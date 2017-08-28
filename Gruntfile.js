@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         copy: {
-            main: {
+            build: {
                 files: [
                     {   // copy js files from bower to asset folder
                         expand: true,
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                     {   // copy img file from src to dest
                         expand: true,
                         flatten: true,   // remove all unnecessary nesting
-                        src: 'app/src/assets/img/*.svg',  // source files mask
+                        src: ['app/src/assets/img/*.svg', 'app/src/assets/img/*.png', 'app/src/assets/img/*.jpg'],  // source files mask
                         dest: 'app/dest/assets/img'    // destination folder
                     }
                 ]
@@ -53,6 +53,22 @@ module.exports = function(grunt) {
             build: ['Gruntfile.js', 'src/**/*.js']
         },
 
+        //
+        concat: {
+            build: {
+                options: {
+                    separator: ';'
+                },
+                files: {
+                    'app/dest/temp/controllers.js' : ['app/src/client/controllers/*.js'],
+
+                    'app/dest/temp/modules.js' : ['app/src/client/modules/*.js'],
+
+                    'app/dest/temp/style.css': ['app/src/assets/css/*.css']
+                }
+            }
+        },
+
         // configure uglify to minify js files -------------------------------------
         uglify: {
             options: {
@@ -60,18 +76,14 @@ module.exports = function(grunt) {
             },
             build: {
                 files: [
-                    {   // minify js assets
-                        expand: true,    // allow dynamic building
-                        flatten: true,   // remove all unnecessary nesting
-                        src: 'app/src/assets/js/*.js',  // source files mask
-                        dest: 'app/dest/assets/js/',    // destination folder
-                        ext: '.min.js'   // replace .js to .min.js
-                    },
                     {   // minify index.js
                         'app/dest/index.js':'app/src/index.js'
                     },
-                    {   // minify and concat modules
-                        'app/dest/client/modules.min.js':['app/src/client/**/*.js']
+                    {   // minify concated modules
+                        'app/dest/client/modules.min.js': ['app/dest/temp/modules.js']
+                    },
+                    {   // minify concated controller
+                        'app/dest/client/controllers.min.js': ['app/dest/temp/controllers.js']
                     }
                 ]
             }
@@ -83,13 +95,9 @@ module.exports = function(grunt) {
                 banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             build: {
-                files: [{
-                    expand: true,
-                    cwd: 'app/src/assets/css',
-                    src: ['*.css', '!*.min.css'],
-                    dest: 'app/dest/assets/css',
-                    ext: '.min.css'
-                }]
+                files: {
+                    'app/dest/assets/css/style.min.css': 'app/dest/temp/style.css'
+                }
             }
         },
 
@@ -102,12 +110,6 @@ module.exports = function(grunt) {
             build: {
                 files: [
                     {
-                        expand: true,
-                        cwd: 'app/src/assets/html/',
-                        src: ['*.html'],
-                        dest: 'app/dest/assets/html'
-                    },
-                    {
                         'app/dest/index.html':'app/src/index.html'
                     }
                 ]
@@ -119,7 +121,7 @@ module.exports = function(grunt) {
             options: {
                 // Task-specific options go here.
             },
-            target: {
+            build: {
                 cmd: 'node',
                 args: [
                     'app/dest/index.js'
@@ -130,13 +132,13 @@ module.exports = function(grunt) {
         // Will delete files for `build` target
         // Will NOT delete files for `release` target
         clean: {
-            build: ['app/dest']
+            build: ['app/dest'],
+            remove_temp: 'app/dest/temp'
         }
 
 
 
     });
-
 
     // ===========================================================================
     // LOAD GRUNT PLUGINS ========================================================
@@ -144,6 +146,7 @@ module.exports = function(grunt) {
     // we can only load these if they are in our package.json
     // make sure you have run npm install so our app can find these
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -154,5 +157,5 @@ module.exports = function(grunt) {
 
 
     // ============= // CREATE TASKS ========== //
-    grunt.registerTask('default', ['clean' ,'copy' ,'jshint', 'uglify', 'cssmin', 'htmlmin', 'run']);
+    grunt.registerTask('build', ['clean' ,'copy' ,'concat' ,'jshint', 'uglify', 'cssmin', 'htmlmin', 'clean:remove_temp', 'run']);
 };
