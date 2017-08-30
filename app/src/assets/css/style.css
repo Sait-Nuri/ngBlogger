@@ -1,10 +1,18 @@
 /* dist/css/pretty.css */
 
+html {
+    height: 100%;
+}
 
 button {
+    height:100%;
     background: #8bc5ff;
 }
 div {
+
+}
+
+body{
 
 }
 
@@ -17,7 +25,7 @@ div {
 }
 
 #main_body {
-    height: 1000px;
+    height: 800px;
     margin-top: 10px;
 }
 

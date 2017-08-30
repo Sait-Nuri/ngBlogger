@@ -64,6 +64,8 @@ module.exports = function(grunt) {
 
                     'app/dest/temp/modules.js' : ['app/src/client/modules/*.js'],
 
+                    'app/dest/temp/directives.js' : ['app/src/client/directives/*.js'],
+
                     'app/dest/temp/style.css': ['app/src/assets/css/*.css']
                 }
             }
@@ -84,6 +86,9 @@ module.exports = function(grunt) {
                     },
                     {   // minify concated controller
                         'app/dest/client/controllers.min.js': ['app/dest/temp/controllers.js']
+                    },
+                    {   // minify concated directives
+                        'app/dest/client/directives.min.js': ['app/dest/temp/directives.js']
                     }
                 ]
             }
@@ -111,6 +116,12 @@ module.exports = function(grunt) {
                 files: [
                     {
                         'app/dest/index.html':'app/src/index.html'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        src: 'app/src/client/partials/*.html',
+                        dest: 'app/dest/client/partials/'
                     }
                 ]
             }

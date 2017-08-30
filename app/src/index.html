@@ -63,10 +63,10 @@
                         <p>{{text}}</p>
                     </div>
 
-                    <div id="search_bar" flex-sm ="30" flex-gt-sm="20" class="padded" md-whiteframe="1" style="height: 45px; " >
+                    <div id="search_bar" flex-sm ="30" flex-gt-sm="20" style="height: 45px; " >
                         <div layout="row" layout-wrap style="height: 100%;">
                             <div hide-xs flex="none" style="width: 7px; height: 100%;"></div>
-                            <div flex style="height: 100%; background-color: #fafafa">
+                            <div flex class="padded" md-whiteframe="1" style="height: 100%; background-color: #fafafa">
                                 <md-input-container class="inpsrc" md-no-float>
                                     <input type="text" placeholder="Ara" style="height: 100%;">
                                 </md-input-container>
@@ -86,19 +86,13 @@
                     <div id="body_container" layout-gt-sm="row" layout="column" layout-wrap>
                         <div id="mobile_menu" hide-gt-sm flex="initial" style="height: 40px; background-color: #6d85a9;">Toggle Menu</div>
 
-                        <div id="left_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E;">
+                        <div ng-controller="PluginController" id="left_plugins" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E;">
                             <div layout="row" style="height:100%;">
-                                <div flex style="height: 100%;">
-                                    <div class="padded" md-whiteframe="3" flex>
-                                        <div style="height: 30px; background-color: #444444"></div>
-                                        <div style="height: 150px; background-color: #fafafa"></div>
-                                    </div>
-
-                                    <div style="margin-top: 5px;"></div>
-                                    <div class="padded" md-whiteframe="3" flex>
-                                        <div style="height: 30px; background-color: #444444"></div>
-                                        <div style="height: 150px; background-color: #fafafa"></div>
-                                    </div>
+                                <div id="plugin_wrapper" flex style="height: 100%;">
+                                    <plugin type="plugins.left1"></plugin>
+                                    <plugin type="plugins.left2"></plugin>
+                                    <plugin type="plugins.left3"></plugin>
+                                    <plugin type="plugins.left4"></plugin>
                                 </div>
                                 <div flex="none" hide show-gt-sm style="width: 7px; height: 100%;">
 
@@ -111,20 +105,14 @@
 
                             </div>
                         </div>
-                        <div id="right_menu" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
+                        <div ng-controller="PluginController" id="right_plugins" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
                             <div layout="row" style="height: 100%;">
                                 <div flex="none" style="width: 7px; height: 100%;"></div>
                                 <div flex style="height: 100%;">
-                                    <div class="padded" md-whiteframe="3" flex>
-                                        <div style="height: 30px; background-color: #444444"></div>
-                                        <div style="height: 150px; background-color: #fafafa"></div>
-                                    </div>
-
-                                    <div style="margin-top: 5px;"></div>
-                                    <div class="padded" md-whiteframe="3" flex>
-                                        <div style="height: 30px; background-color: #444444"></div>
-                                        <div style="height: 150px; background-color: #fafafa"></div>
-                                    </div>
+                                    <plugin type="plugins.right1"></plugin>
+                                    <plugin type="plugins.right2"></plugin>
+                                    <plugin type="plugins.right3"></plugin>
+                                    <plugin type="plugins.right4"></plugin>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +124,7 @@
 
     <div id="footer">
         <div layout="row" layout-align="center center" style="height:100%; background-color: #9E9E9E; color: white;">
-            <div layout="column" flex-gt-sm="70" flex style="height: 100%; background-color: #ee6e73;">
+            <div layout="column" flex-gt-sm="70" flex style="height: 100%; background-color: rgba(221,111,111,0.95);">
                 <div flex="75" style="height: 100%; ">
                     <div layout="row" style="height: 100%;">
                         <div flex="70" layout="row" layout-align="center" style="">
@@ -150,7 +138,7 @@
                         <div flex="30"></div>
                     </div>
                 </div>
-                <div flex="25" style="background-color: #df696e;">
+                <div flex="25" style="background-color: #c46363;">
                     <div layout="row" style="height: 100%;">
                         <div flex="20">
                             <div layout="row" layout-align="center center" style="font-size: small">
@@ -173,5 +161,6 @@
 
     <script src="modules.min.js"></script>
     <script src="controllers.min.js"></script>
+    <script src="directives.min.js"></script>
 </body>
 </html>
