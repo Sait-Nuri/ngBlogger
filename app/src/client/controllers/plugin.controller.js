@@ -3,7 +3,17 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
         left1 : {
             'margin_top': '0px',
             'margin_bottom': '5px',
-            'header': 'Başlık 1'
+            'header': 'Başlık 1',
+            'menu_list': {
+                'anasayfa': {
+                    'title': 'Anasayfa',
+                    'toggle': false
+                },
+                'haberler': {
+                    'title': 'Hablerler',
+                    'toggle': false
+                }
+            }
         },
         left2 : {
             'margin_top': '5px',
@@ -40,5 +50,5 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             'margin_bottom': '5px',
             'header': 'Başlık 4'
         }
-    }
+    };
 }]);

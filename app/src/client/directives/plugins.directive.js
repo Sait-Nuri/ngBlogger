@@ -4,6 +4,7 @@ app.directive('plugin', function() {
     var directive = {};
     directive.restrict = 'E';
     directive.templateUrl = "partials/directive.plugin.html";
+    directive.transclude = true;
 
     directive.scope = {
         options : "=type"
