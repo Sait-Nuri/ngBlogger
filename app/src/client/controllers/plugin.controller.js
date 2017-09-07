@@ -1,86 +1,116 @@
 app.controller('PluginController', ['$scope' ,function ($scope) {
     $scope.plugins = {
+
+
         left1 : {
             'margin_top': '0px',
             'margin_bottom': '5px',
             'header': 'Başlık 1',
-            'menu_list': {
-                'anasayfa': {
-                    'title': 'Anasayfa',
-                    'toggle': false
-                },
-                'haberler': {
-                    'title': 'Hablerler',
-                    'toggle': false
-                }
+            news: {
+                'title': 'haberler',
+                'collapse': false
+            },
+
+            docs: {
+                'title': 'yazılar',
+                'collapse': false
+            },
+
+            atolye: {
+                'title': 'atölye',
+                'collapse': false
+            },
+
+            main: {
+                'title': 'anasayfa',
+                'collapse': true,
+                'toggle': false,
+                'sublist': [
+                    {'title': 'sub1'},
+                    {'title': 'sub2'},
+                    {'title': 'sub3'}
+                ]
             }
         },
         left2 : {
             margin_top: '5px',
             margin_bottom: '5px',
             header : 'Eğitimler',
-            list: {
-                appsec:{
-                    title: 'application security'
+            items: [
+                {
+                    title: 'application security',
+                    collapse: false
                 },
-                netsec: {
-                    title: 'network security'
+                {
+                    title: 'network security',
+                    collapse: false
                 },
-                endpsec: {
-                    title: 'endpoint security'
+                {
+                    title: 'endpoint security',
+                    collapse: false
                 }
-            }
+            ]
         },
         left3 : {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Merak Edilen Konular',
-            list: {
-                konu1: {
-                    title: 'Hacker kime denir/denmez?'
+            items: [
+                {
+                    title: 'Hacker kime denir/denmez?',
+                    collapse: false
                 },
-                konu2: {
-                    title: 'Güvenlik açığı nedir? nasıl oluşur?'
+                {
+                    title: 'Güvenlik açığı nedir? nasıl oluşur?',
+                    collapse: false
                 },
-                konu3: {
-                    title: 'Büyük saldırılar nasıl yapılır?'
+                {
+                    title: 'Büyük saldırılar nasıl yapılır?',
+                    collapse: false
                 },
-                konu4: {
-                    title: 'Siber ordu nedir?'
+                {
+                    title: 'Siber ordu nedir?',
+                    collapse: false
                 }
-            }
+            ]
         },
         left4: {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Güvenlik Önerileri',
-            list: {
-                konu1: {
-                    title: 'Antivirüs Önerileri'
+            items: [
+                {
+                    title: 'Antivirüs Önerileri',
+                    collapse: false
                 },
-                konu2: {
-                    title: 'güvenli alışveriş'
+                {
+                    title: 'güvenli alışveriş',
+                    collapse: false
                 },
-                konu3: {
-                    title: 'güçlü şifre nasıl oluşturulur.'
+                {
+                    title: 'güçlü şifre nasıl oluşturulur.',
+                    collapse: false
                 }
-            }
+            ]
         },
         left5: {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Saçma sapan sorular ve düşünceler',
-            list: {
-                konu1: {
-                    title: 'Falan kişinin facesini patlatabilir misin?'
+            items: [
+                {
+                    title: 'Falan kişinin facesini patlatabilir misin?',
+                    collapse: false
                 },
-                konu2: {
-                    title: 'Antivirüse ihtiyacım yok.'
+                {
+                    title: 'Antivirüse ihtiyacım yok.',
+                    collapse: false
                 },
-                konu3: {
-                    title: 'Ben hekırım olm'
+                {
+                    title: 'Ben hekırım olm',
+                    collapse: false
                 }
-            }
+            ]
         },
         right1: {
             'margin_top': '0px',

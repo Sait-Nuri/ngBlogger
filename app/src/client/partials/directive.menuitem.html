@@ -1,0 +1,14 @@
+<div style="height: 100%;">
+    <div ng-click="content.collapse && (content.toggle = !content.toggle)" style="height: 100%;">
+        <md-button style="height: 30px; width: 100%; margin: 0; font-size: 12px; text-align: left;">
+            <span flex style="text-transform: capitalize; ">{{content.title}}</span>
+        </md-button>
+        <md-divider ></md-divider>
+    </div>
+    <div ng-if="content.toggle" style="height: 100%;">
+        <div style="height: 100%;" ng-repeat="item in content.sublist">
+            <menu-subitem content="item"></menu-subitem>
+        </div>
+        <md-divider ></md-divider>
+    </div>
+</div>
