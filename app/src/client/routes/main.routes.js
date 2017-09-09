@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     var home = {
         name: 'home',
         url: '/home',
-        templateUrl: 'partials/mainpage.html'
+        templateUrl: 'partials/route.mainpage.html'
     };
 
     var article = {
