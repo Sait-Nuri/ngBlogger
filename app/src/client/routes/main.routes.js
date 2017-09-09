@@ -34,7 +34,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     var news = {
         name: 'news',
         url: '/news',
-        template: '<span>Haberler</span></b>'
+        templateUrl: 'partials/route.news_page.html',
+        controller: ['$scope', function ($scope) {
+            $scope.news_page = {
+                page_title: 'Haberler',
+                title: 'Başlık3',
+                image: 'Resim3',
+                content: 'İçerik içerik içerik'
+            }
+        }]
     };
 
     $urlRouterProvider.otherwise('/home');
