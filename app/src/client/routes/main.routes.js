@@ -20,7 +20,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     var article = {
         name: 'article',
         url: '/article',
-        template: '<span>Yazılar</span></b>'
+        templateUrl: 'partials/route.articlepage.html',
+        controller: ['$scope', function ($scope) {
+            $scope.article_page = {
+                page_title: 'Yazılar',
+                title: 'Başlık2',
+                image: 'Resim2',
+                content: 'İçerik içerik içerik'
+            }
+        }]
     };
 
     var news = {

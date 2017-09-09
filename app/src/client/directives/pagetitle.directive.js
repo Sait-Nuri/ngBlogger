@@ -7,7 +7,7 @@ app.directive('pageTitle', function () {
     directive.replace = true;
 
     directive.scope = {
-        title: "@"
+        title: "="
     };
     return directive;
 });
