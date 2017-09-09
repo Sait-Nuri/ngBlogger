@@ -1,7 +1,6 @@
 app.controller('PluginController', ['$scope' ,function ($scope) {
     $scope.plugins = {
 
-
         left1 : {
             'margin_top': '0px',
             'margin_bottom': '5px',

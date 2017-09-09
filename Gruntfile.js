@@ -26,6 +26,20 @@ module.exports = function(grunt) {
                         src: ['*/*.min.js'],
                         dest: 'app/dest/assets/js'
                     },
+                    {
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        cwd: 'bower_components/angular-ui-router/release/',
+                        src: ['angular-ui-router.min.js'],
+                        dest: 'app/dest/assets/js'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,   // remove all unnecessary nesting
+                        cwd: 'bower_components/angular-carousel/dist',
+                        src: ['angular-carousel.js'],
+                        dest: 'app/dest/assets/js'
+                    },
                     {   // copy css files from bower to asset folder
                         expand: true,
                         flatten: true,   // remove all unnecessary nesting
@@ -60,12 +74,19 @@ module.exports = function(grunt) {
                     separator: ';'
                 },
                 files: {
+                    // Concatanate all controllers
                     'app/dest/temp/controllers.js' : ['app/src/client/controllers/*.js'],
 
+                    // Concatanate all modules
                     'app/dest/temp/modules.js' : ['app/src/client/modules/*.js'],
 
+                    // Concatanate all directives
                     'app/dest/temp/directives.js' : ['app/src/client/directives/*.js'],
 
+                    // Concatanate all routes
+                    'app/dest/temp/routes.js': ['app/src/client/routes/*.js'],
+
+                    // Concatanate all stylesheets
                     'app/dest/temp/style.css': ['app/src/assets/css/*.css']
                 }
             }
@@ -89,6 +110,9 @@ module.exports = function(grunt) {
                     },
                     {   // minify concated directives
                         'app/dest/client/directives.min.js': ['app/dest/temp/directives.js']
+                    },
+                    {   // minify concated routes
+                        'app/dest/client/routes.min.js': ['app/dest/temp/routes.js']
                     }
                 ]
             }
@@ -101,7 +125,8 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    'app/dest/assets/css/style.min.css': 'app/dest/temp/style.css'
+                    'app/dest/assets/css/style.min.css': 'app/dest/temp/style.css',
+                    'app/dest/assets/css/angular-carousel.min.css': 'bower_components/angular-carousel/dist/angular-carousel.css'
                 }
             }
         },
