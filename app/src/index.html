@@ -87,7 +87,7 @@
                     <div id="body_container" layout-gt-sm="row" layout="column" layout-wrap>
                         <div id="mobile_menu" hide-gt-sm flex="initial" style="height: 40px; background-color: #6d85a9;">Toggle Menu</div>
 
-                        <div ng-controller="PluginController" id="left_plugins" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E;">
+                        <div id="left_plugins" ng-controller="PluginController" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E;">
                             <div layout="row" style="height:100%;">
                                 <div id="plugin_wrapper" flex style="height: 100%;">
                                     <plugin type="plugins.left1" style="height: auto;">
@@ -123,7 +123,7 @@
                             </div>
                         </div>
 
-                        <div id="container" flex-gt-sm="60" flex style="background-color: #d4d691; padding-left: 5px; padding-right: 5px; ">
+                        <div id="container" ng-controller="ContainerController" flex-gt-sm="60" flex style="background-color: #d4d691; padding-left: 5px; padding-right: 5px; ">
                             <div id="slider_main" hide show-gt-sm style="height: 300px; background-color: coral;" >
                                 <div style="height: 100%; text-align: center;">
                                     <ul rn-carousel rn-carousel-index="0" rn-carousel-auto-slide="3" class="carousel5" style="height: 100%;">

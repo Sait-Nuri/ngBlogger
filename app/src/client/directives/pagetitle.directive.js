@@ -6,5 +6,8 @@ app.directive('pageTitle', function () {
     directive.transclude = true;
     directive.replace = true;
 
+    directive.scope = {
+        title: "@"
+    };
     return directive;
 });

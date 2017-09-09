@@ -6,7 +6,7 @@ app.directive('thumb', function() {
     directive.replace = true;
 
     directive.scope = {
-        content: "="
+        attr: "="
     };
 
     return directive;

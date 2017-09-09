@@ -6,7 +6,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     var home = {
         name: 'home',
         url: '/home',
-        templateUrl: 'partials/route.mainpage.html'
+        templateUrl: 'partials/route.mainpage.html',
+        controller: ['$scope', function ($scope) {
+            $scope.main_page = {
+                page_title: 'Anasayfa',
+                title: 'Başlık',
+                image: 'Resim',
+                content: 'İçerik içerik içerik'
+            }
+        }]
     };
 
     var article = {
