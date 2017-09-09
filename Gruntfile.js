@@ -145,7 +145,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,   // remove all unnecessary nesting
-                        src: 'app/src/client/partials/*.html',
+                        src: 'app/src/client/partials/*/*.html',
                         dest: 'app/dest/client/partials/'
                     }
                 ]
