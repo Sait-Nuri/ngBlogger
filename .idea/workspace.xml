@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1310a947-3b84-437a-ab7d-68089becd906" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/client/directives/thumb_container.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb_container.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/client/directives/pagetitle.directive.js" afterPath="$PROJECT_DIR$/app/src/client/directives/pagetitle.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/directive.menuitem.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.menuitem.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/directive.menusubitem.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.menusubitem.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/directive.plugin.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.plugin.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/directive.thumb.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/mainpage.pagetitle.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.pagetitle.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/client/partials/route.mainpage.html" afterPath="$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html" afterPath="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html" afterPath="$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,12 +21,57 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thumb_container.directive.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/client/directives/thumb_container.directive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directive.thumb_container.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb_container.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.mainpage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directive.thumb.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +146,11 @@
         <option value="$PROJECT_DIR$/app/src/client/directives/pagetitle.directive.js" />
         <option value="$PROJECT_DIR$/app/src/client/directives/plugins.directive.js" />
         <option value="$PROJECT_DIR$/app/src/client/directives/thumb.directive.js" />
+        <option value="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumbwrapper.js" />
+        <option value="$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html" />
+        <option value="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb_container.html" />
+        <option value="$PROJECT_DIR$/app/src/client/directives/thumb_container.directive.js" />
+        <option value="$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html" />
       </list>
     </option>
   </component>
@@ -504,11 +550,11 @@
       <recent name="C:\Users\saidnuriPC\WebstormProjects\ngBlogger\app\dest\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\ngBlogger\app\src\client\directives" />
       <recent name="D:\Programming\ngBlogger\app\src\client\partials\directive" />
       <recent name="D:\Programming\ngBlogger\app\src\client\partials\route" />
       <recent name="D:\Programming\ngBlogger\app\src\assets\img" />
       <recent name="D:\Programming\ngBlogger\app\src\client\modules" />
-      <recent name="C:\Users\saidnuriPC\WebstormProjects\ngBlogger\app\src\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -658,7 +704,7 @@
       <workItem from="1503770330918" duration="71793000" />
       <workItem from="1504083001718" duration="21365000" />
       <workItem from="1504640764454" duration="656000" />
-      <workItem from="1504804828938" duration="52688000" />
+      <workItem from="1504804828938" duration="53322000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1502575795680</created>
@@ -737,11 +783,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504983635028</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="partial ların hiyerarşisi değişti.">
+      <created>1504984184803</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1504984184803</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166732000" />
+    <option name="totallyTimeSpent" value="167366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -784,7 +837,8 @@
     <MESSAGE value="menu itemleri için directive ler oluşturuldu." />
     <MESSAGE value="Carousel slider eklendi. Routing eklendi." />
     <MESSAGE value="Thumb directive oluşturuldu. Thumb wrapper yapılacak." />
-    <option name="LAST_COMMIT_MESSAGE" value="Thumb directive oluşturuldu. Thumb wrapper yapılacak." />
+    <MESSAGE value="partial ların hiyerarşisi değişti." />
+    <option name="LAST_COMMIT_MESSAGE" value="partial ların hiyerarşisi değişti." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -793,14 +847,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/client/controllers/app.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/dest/client/controllers/controllers.js" />
     <entry file="file://$PROJECT_DIR$/app/dest/temp/controllers.js" />
     <entry file="file://$PROJECT_DIR$/app/dest/temp/lib.css" />
     <entry file="file://$PROJECT_DIR$/app/dest/temp/lib.js" />
@@ -870,14 +916,6 @@
             <marker date="1504902373029" expanded="true" signature="859:873" ph="{&quot;margin_top&quot;: '5px'...}" />
             <marker date="1504902373029" expanded="true" signature="3772:3783" ph="{&quot;margin_top&quot;: '5px'...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/dest/client/directives.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,19 +1052,6 @@
         <state relative-caret-position="184">
           <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1174,10 +1199,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/client/directives/thumb.directive.js">
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state relative-caret-position="357">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1190,19 +1215,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html">
+    <entry file="file://$PROJECT_DIR$/app/src/client/directives/thumb.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="68">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/app/src/client/directives/thumb_container.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+        <state relative-caret-position="68">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb_container.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/dest/client/directives.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="1060" lean-forward="false" selection-start-line="4" selection-start-column="1060" selection-end-line="4" selection-end-column="1060" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/client/partials/route/route.mainpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/client/partials/directive/directive.thumb.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
