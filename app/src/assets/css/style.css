@@ -77,3 +77,12 @@ img {
 .padding-left-5{
     padding-left: 5px;
 }
+
+.md-button.md-fab{
+    width: 42px;
+    height: 42px;
+}
+
+md-fab-toolbar .md-fab-toolbar-wrapper{
+
+}

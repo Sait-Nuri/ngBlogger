@@ -53,6 +53,10 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 templateUrl: 'partials/route.page.html',
                 controller: ['$scope', '$stateParams', function ($scope, $stateParams) {
                     $scope.title = "Başlık " + $stateParams.id;
+                    $scope.page_fab = {
+                        is_open: false,
+                        selectedDirection: 'right'
+                    }
                 }]
             }
         }
