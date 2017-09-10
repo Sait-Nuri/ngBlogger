@@ -45,9 +45,23 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         }]
     };
 
+    var newspage = {
+        name: 'news.page',
+        url: '/:id',
+        views: {
+            "@": { // Targets unnamed view of root template (index.html)
+                templateUrl: 'partials/route.page.html',
+                controller: ['$scope', '$stateParams', function ($scope, $stateParams) {
+                    $scope.title = "Başlık " + $stateParams.id;
+                }]
+            }
+        }
+    };
+
     $urlRouterProvider.otherwise('/home');
     $stateProvider.state(home);
     $stateProvider.state(article);
     $stateProvider.state(news);
+    $stateProvider.state(newspage);
 
 }]);
