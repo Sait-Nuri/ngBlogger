@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body ng-app="myApp" style="height: 100%; background-color: #9E9E9E;">
+<body ng-app="myApp" style="background-color: #9E9E9E;">
     <div id="header" layout="row" layout-wrap layout-align="center">
         <div id="header_content" flex-gt-md="85" flex="100">
             <div layout="row" layout-wrap style="height: 100%;">
@@ -124,7 +124,9 @@
                         </div>
 
                         <div id="container" ng-controller="ContainerController" flex-gt-sm="60" flex style="background-color: #d4d691; padding-left: 5px; padding-right: 5px; ">
-                            <div ui-view></div>
+                            <md-content flex style="height:1000px; background-color:inherit;">
+                                <div ui-view></div>
+                            </md-content>
                         </div>
                         <div ng-controller="PluginController" id="right_plugins" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">
                             <div layout="row" style="height: 100%;">
@@ -143,9 +145,9 @@
         </div>
     </div>
 
-    <div id="footer" hide>
+    <div id="footer">
         <div layout="row" layout-align="center center" style="height:100%; background-color: #9E9E9E; color: white;">
-            <div layout="column" flex-gt-sm="70" flex style="height: 100%; background-color: rgba(221,111,111,0.95);">
+            <div layout="column" flex-gt-sm="90" flex style="height: 100%; background-color: rgba(221,111,111,0.95);">
                 <div flex="75" style="height: 100%; ">
                     <div layout="row" style="height: 100%;">
                         <div flex="70" layout="row" layout-align="center" style="">
