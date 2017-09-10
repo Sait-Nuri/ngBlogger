@@ -4,7 +4,17 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
         left1 : {
             'margin_top': '0px',
             'margin_bottom': '5px',
-            'header': 'Başlık 1',
+            'header': 'Menü',
+            main: {
+                'title': 'anasayfa',
+                'collapse': true,
+                'toggle': false,
+                'sublist': [
+                    {'title': 'sub1'},
+                    {'title': 'sub2'},
+                    {'title': 'sub3'}
+                ]
+            },
             news: {
                 'title': 'haberler',
                 'collapse': false
@@ -18,18 +28,9 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             atolye: {
                 'title': 'atölye',
                 'collapse': false
-            },
-
-            main: {
-                'title': 'anasayfa',
-                'collapse': true,
-                'toggle': false,
-                'sublist': [
-                    {'title': 'sub1'},
-                    {'title': 'sub2'},
-                    {'title': 'sub3'}
-                ]
             }
+
+
         },
         left2 : {
             margin_top: '5px',
