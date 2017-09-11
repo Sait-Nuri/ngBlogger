@@ -86,3 +86,19 @@ img {
 md-fab-toolbar .md-fab-toolbar-wrapper{
 
 }
+
+div.md-fab-toolbar-content{
+    height: 52px;
+}
+
+.md-toolbar{
+    min-height: unset;
+    height:52px;
+}
+
+md-fab-toolbar .md-fab-toolbar-wrapper {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height:52px;
+}

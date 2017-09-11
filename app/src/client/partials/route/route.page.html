@@ -1,20 +1,34 @@
 <div flex layout="column" style="margin-top: 10px;">
-    <div flex layout="column" style="background-color: #6d85a9; padding: 5px;">
-        <div flex style="padding: 10px;">
-            <b>Equifax Hack Exposes Personal Info of 143 Million US Consumers</b>
+    <div flex="none" layout="column" layout-wrap style="background-color: #6d85a9; padding: 5px; height: 100%;">
+        <div flex="none" style="padding: 5px; height: 100%;" layout="row" layout-align="center center">
+            <div flex><h2>Facebook slapped with $1.43 million fine for violating users' privacy in Spain</h2></div>
         </div>
-        <div flex style="padding:10px;">
-            <b>Author:</b><span>Sait Nuri UYANIK</span> <b> Publish date</b><span>13/06/2018</span>
+        <div flex="none" layout="column" layout-gt-xs="row" layout-align="center center" style="height: 100%; padding-left: 5px; padding-right: 5px;">
+            <div flex="initial" style="height: 100%;" layout="row" layout-align="center center">
+                <div id="title_date" flex="initial" layout="row" layout-align="center center"  style="height: 100%;">
+                    <div flex="none" layout="row" layout-align="center center" ><img src="img/calendar.svg" alt="calendar" style="height: 18px; width: 18px;"></div>
+                    <div flex="none" layout="row" layout-align="center none" style="padding: 2px; color: #eaeaea; font-size: 12px;">11.02.1992</div>
+                </div>
+                <div id="title_author" flex="initial" layout="row" layout-align="center center" style="height: 100%; margin-left: 5px;">
+                    <div flex="initial" layout="row" layout-align="center center"><img src="img/user.svg" alt="calendar" style="height: 18px; width: 18px;"></div>
+                    <div flex layout="row" layout-align="center none" style="margin-left:2px; padding: 2px; color: #eaeaea; font-size: 12px;">Sait Nuri UYANIK</div>
+                </div>
+            </div>
+            <div flex></div>
+            <div flex="none" layout="row" style="height: 100%;" >
+                <div flex="none" style="color: #eaeaea; font-size: 14px;">Okuma Sayısı:</div>
+                <div flex="none" style="color: #cb2927; font-size: 16px; margin-left: 4px;"><b>6</b></div>
+            </div>
         </div>
         <div flex>
-            <md-fab-toolbar flex md-open="page_fab.isOpen" md-direction="{{page_fab.selectedDirection}}">
-                <md-fab-trigger class="align-with-text">
+            <md-fab-toolbar flex md-open="page_fab.isOpen" md-direction="{{page_fab.selectedDirection}}" style="height: 52px;">
+                <md-fab-trigger class="align-with-text" style="height: 52px;">
                     <md-button aria-label="menu" class="md-fab md-primary">
                         <md-icon md-svg-src="img/ic_menu.svg"></md-icon>
                     </md-button>
                 </md-fab-trigger>
-                <md-toolbar>
-                    <md-fab-actions>
+                <md-toolbar style="height: 100%;">
+                    <md-fab-actions style="height: 100%;">
                         <md-button aria-label="Add User"></md-button>
                         <md-button aria-label="Add Group"></md-button>
                     </md-fab-actions>
@@ -23,22 +37,29 @@
         </div>
     </div>
     <div flex style="margin: 5px;">
-        It's ironic—the company that offers credit monitoring and ID theft protection solutions has itself been compromised, exposing personal information of as many as 143 million Americans—that's almost half the country.
-        Equifax, one of the three largest credit reporting firm in the United States, admitted today that it had suffered a massive data breach somewhere between mid-May and July this year, which it actually discovered on July 29—that means the data of 143 million people were exposed for over 3 months.
-        However, it's unknown why Equifax waited 6 weeks before informing their millions of affected customers about the massive security breach.
-        Based on Equifax's investigation, unknown hackers exploited a security vulnerability on its website to gain unauthorized access to certain files.
-        Stolen data includes consumers' names, Social Security numbers, and birth dates for 143 million Americans, and in some instances, driving licence numbers and credit card numbers for about 209,000 citizens.
-        Also Read: How you can Protect Yourself from possibly the WORST Leak of Personal Data Ever.
-        The company said that some personal information for Canadian and British residents was also compromised.
-        Moreover, reportedly, three senior executives at Equifax, namely John Gamble (CFO), Joseph Loughran and Rodolfo Ploder, sold almost $2 million worth of their shares just days after the company learned of this massive hack.
-        Equifax is currently investigating the security incident and has reportedly hired FireEye's security firm Mandiant to help the company in hack aftermath.
-        Meanwhile, all Equifax customers are advised to visit http://www.equifaxsecurity2017.com website to check if their information has also been stolen. Users just need to enter the last 6 digits of their SSN and last name.
-        However, it is not that simple. The website is not giving a clear answer about whether or not your data may have been affected in the hack, but making it clear to those who were not exposed. Yes, it's confusing.
-        Equifax is asking affected customers to sign up for credit-monitoring and identity theft protection services—isn't this funny?
-        Don't worry; it's free for affected users.
-        The company has not yet confirmed whether the hackers have contacted it for any extortion demand, but since the breach is major, Americans quickly need to take necessary actions to protect themselves and their loved ones.
-        For this, you can head on to our article on How to Protect Yourself after this Security Mishap.
-        Stay tuned for more information, stay safe online.
+        <p>It's ironic—the company that offers credit monitoring and ID theft protection solutions has itself been compromised, exposing personal information of as many as 143 million Americans—that's almost half the country.
+            Equifax, one of the three largest credit reporting firm in the United States, admitted today that it had suffered a massive data breach somewhere between mid-May and July this year, which it actually discovered on July 29—that means the data of 143 million people were exposed for over 3 months.
+            However, it's unknown why Equifax waited 6 weeks before informing their millions of affected customers about the massive security breach.
+        </p>
+        <p>
+            Based on Equifax's investigation, unknown hackers exploited a security vulnerability on its website to gain unauthorized access to certain files.
+            Stolen data includes consumers' names, Social Security numbers, and birth dates for 143 million Americans, and in some instances, driving licence numbers and credit card numbers for about 209,000 citizens.
+            Also Read: How you can Protect Yourself from possibly the WORST Leak of Personal Data Ever.
+        </p>
+        <p>
+            The company said that some personal information for Canadian and British residents was also compromised.
+            Moreover, reportedly, three senior executives at Equifax, namely John Gamble (CFO), Joseph Loughran and Rodolfo Ploder, sold almost $2 million worth of their shares just days after the company learned of this massive hack.
+            Equifax is currently investigating the security incident and has reportedly hired FireEye's security firm Mandiant to help the company in hack aftermath.
+            Meanwhile, all Equifax customers are advised to visit http://www.equifaxsecurity2017.com website to check if their information has also been stolen. Users just need to enter the last 6 digits of their SSN and last name.
+            However, it is not that simple. The website is not giving a clear answer about whether or not your data may have been affected in the hack, but making it clear to those who were not exposed. Yes, it's confusing.
+            Equifax is asking affected customers to sign up for credit-monitoring and identity theft protection services—isn't this funny?
+        </p>
+        <p>
+            Don't worry; it's free for affected users.
+            The company has not yet confirmed whether the hackers have contacted it for any extortion demand, but since the breach is major, Americans quickly need to take necessary actions to protect themselves and their loved ones.
+            For this, you can head on to our article on How to Protect Yourself after this Security Mishap.
+            Stay tuned for more information, stay safe online.
+        </p>
     </div>
     <div flex="noshrink" style="background-color: aquamarine;">
         <div flex><b>YORUMLAR</b></div>
