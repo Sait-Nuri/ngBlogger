@@ -27,10 +27,20 @@
                         <md-icon md-svg-src="img/ic_menu.svg"></md-icon>
                     </md-button>
                 </md-fab-trigger>
-                <md-toolbar style="height: 100%;">
-                    <md-fab-actions style="height: 100%;">
-                        <md-button aria-label="Add User"></md-button>
-                        <md-button aria-label="Add Group"></md-button>
+                <md-toolbar style="height: 52px; margin: unset; padding: unset; min-height: unset; min-width: unset;">
+                    <md-fab-actions layout="row" layout-align="center center" class="md-toolbar-tools" style="height: 100%; margin: unset; padding: unset; min-height: unset; min-width: unset;">
+                        <md-button flex="initial" layout="row" layout-align="center center" aria-label="comment" class="md-icon-button" style="height: 100%;">
+                            <img src="img/facebook.png" alt="share with facebook" style="width: 24px; height: 24px;">
+                        </md-button>
+                        <md-button flex="initial" layout="row" layout-align="center center" aria-label="comment" class="md-icon-button" style="height: 100%;">
+                            <img src="img/twitter.png" alt="share with facebook" style="width: 24px; height: 24px;">
+                        </md-button>
+                        <md-button flex="initial" layout="row" layout-align="center center" aria-label="comment" class="md-icon-button" style="height: 100%;">
+                            <img src="img/linkedin.png" alt="share with facebook" style="width: 24px; height: 24px;">
+                        </md-button>
+                        <md-button flex="initial" layout="row" layout-align="center center" aria-label="comment" class="md-icon-button" style="height: 100%;">
+                            <img src="img/gplus.png" alt="share with facebook" style="width: 24px; height: 24px;">
+                        </md-button>
                     </md-fab-actions>
                 </md-toolbar>
             </md-fab-toolbar>
@@ -61,7 +71,7 @@
             Stay tuned for more information, stay safe online.
         </p>
     </div>
-    <div flex="noshrink" layout="column" style="background-color: aquamarine;">
+    <div flex="noshrink" layout="column" style="">
         <div flex="init" style><h3>YORUMLAR</h3></div>
         <write-comment></write-comment>
         <write-reply></write-reply>
