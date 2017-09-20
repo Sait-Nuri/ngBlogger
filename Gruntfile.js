@@ -83,6 +83,9 @@ module.exports = function(grunt) {
                     // Concatanate all directives
                     'app/dest/temp/directives.js' : ['app/src/client/directives/*.js'],
 
+                    // Concatanate all services
+                    'app/dest/temp/services.js' : ['app/src/client/services/*.js'],
+
                     // Concatanate all routes
                     'app/dest/temp/routes.js': ['app/src/client/routes/*.js'],
 
@@ -107,6 +110,9 @@ module.exports = function(grunt) {
                     },
                     {   // minify concated controller
                         'app/dest/client/controllers.min.js': ['app/dest/temp/controllers.js']
+                    },
+                    {   // minify concated services
+                        'app/dest/client/services.min.js': ['app/dest/temp/services.js']
                     },
                     {   // minify concated directives
                         'app/dest/client/directives.min.js': ['app/dest/temp/directives.js']

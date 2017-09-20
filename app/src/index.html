@@ -12,7 +12,7 @@
 </head>
 <body ng-app="myApp" style="background-color: #9E9E9E;">
     <div id="header" layout="row" layout-wrap layout-align="center">
-        <div id="header_content" flex-gt-md="85" flex="100">
+        <div ng-controller="BannerController" id="header_content" flex-gt-md="85" flex="100">
             <div layout="row" layout-wrap style="height: 100%;">
 
                 <div flex="none" hide show-gt-sm style="width: 180px; height: 100%;">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div flex="20" layout="row">
+                        <div id="login_module" ng-controller="LoginController" flex="20" layout="row">
                             <div flex="none" layout="row" class="md-whiteframe-2dp" layout-align="center center" style="margin-right: 2px; background-color: #ccc67a; color:#313131; font-size: 12px; padding: 2px;"><span>Giriş Yap</span></div>
                             <div flex layout="row" style="background-color: #9E9E9E;">
                                 <div flex layout="row" layout-align="center none" style="padding: 1px;">
@@ -83,7 +83,7 @@
                         <p>{{text}}</p>
                     </div>
 
-                    <div id="search_bar" flex-sm ="30" flex-gt-sm="20" style="height: 45px; " >
+                    <div id="search_bar" ng-controller="SearchController" flex-sm ="30" flex-gt-sm="20" style="height: 45px; " >
                         <div layout="row" layout-wrap style="height: 100%;">
                             <div hide-xs flex="none" style="width: 7px; height: 100%;"></div>
                             <div flex class="padded" md-whiteframe="1" style="height: 100%; background-color: #fafafa">
@@ -144,7 +144,7 @@
 
                         <div id="container" ng-controller="ContainerController" flex-gt-sm="60" flex style="background-color: #d4d691; padding-left: 5px; padding-right: 5px; ">
                             <md-content flex style="height:1000px; background-color:inherit;">
-                                <div ui-view></div>
+                                <div ui-view ></div>
                             </md-content>
                         </div>
                         <div ng-controller="PluginController" id="right_plugins" flex-gt-sm="20" hide show-gt-sm style="background-color: #9E9E9E; ">

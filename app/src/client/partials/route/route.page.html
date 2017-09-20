@@ -1,4 +1,4 @@
-<div flex layout="column" style="margin-top: 10px;">
+<div ng-controller="PageController" flex layout="column" style="margin-top: 10px;">
     <div flex="none" layout="column" layout-wrap style="background-color: #6d85a9; padding: 5px; height: 100%;">
         <div flex="none" style="padding: 5px; height: 100%;" layout="row" layout-align="center center">
             <div flex><h2>Facebook slapped with $1.43 million fine for violating users' privacy in Spain</h2></div>
@@ -71,7 +71,7 @@
             Stay tuned for more information, stay safe online.
         </p>
     </div>
-    <div flex="noshrink" layout="column" style="">
+    <div ng-controller="CommentController" flex="noshrink" layout="column" >
         <div flex="init" style><h3>YORUMLAR</h3></div>
         <write-comment></write-comment>
         <comment-base></comment-base>

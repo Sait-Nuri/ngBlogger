@@ -29,8 +29,6 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
                 'title': 'atölye',
                 'collapse': false
             }
-
-
         },
         left2 : {
             margin_top: '5px',
