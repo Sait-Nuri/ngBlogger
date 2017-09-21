@@ -5,7 +5,7 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             'margin_top': '0px',
             'margin_bottom': '5px',
             'header': 'Menü',
-            main: {
+            home: {
                 'title': 'anasayfa',
                 'collapse': true,
                 'toggle': false,
@@ -20,13 +20,23 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
                 'collapse': false
             },
 
-            docs: {
+            article: {
                 'title': 'yazılar',
                 'collapse': false
             },
 
-            atolye: {
-                'title': 'atölye',
+            toolbag: {
+                'title': 'Alet Çantası',
+                'collapse': false
+            },
+
+            battlefield: {
+                'title': 'Er meydanı',
+                'collapse': false
+            },
+
+            itlaws: {
+                'title': 'Bilişim Hukuku',
                 'collapse': false
             }
         },

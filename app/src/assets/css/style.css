@@ -114,3 +114,23 @@ textarea{
 md-input-container .md-input{
     height: unset;
 }
+
+#slider_wrapper > ul > li {
+    height: 100%;
+}
+
+#slider_wrapper > ul > li > img{
+    height: 100%;
+}
+
+#slider_wrapper > ul > li > div{
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color:rgba(0, 0, 0, 0.6);
+    color: #fafafa;
+    font-size: 12px;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+}
