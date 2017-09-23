@@ -1,0 +1,11 @@
+<div flex style="height: 100%;">
+    <div flex="none" style="text-align: center">
+        <h2>Arama Sonuçları</h2>
+    </div>
+    <div flex style="height: 100%; margin-top: 10px;">
+        <div>Aranan: {{input}}</div>
+        <div ng-repeat="result in results_demo">
+            <h3>{{result.body}}</h3>
+        </div>
+    </div>
+</div>

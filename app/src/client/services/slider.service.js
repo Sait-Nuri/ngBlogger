@@ -1,5 +1,3 @@
-'use strict';
-
 app.provider('Slider', [function () {
     this.slider_request = {
         method: 'GET',

@@ -88,12 +88,12 @@
                             <div hide-xs flex="none" style="width: 7px; height: 100%;"></div>
                             <div flex class="padded" md-whiteframe="1" style="height: 100%; background-color: #fafafa">
                                 <md-input-container class="inpsrc" md-no-float>
-                                    <input type="text" placeholder="Ara" style="height: 100%;">
+                                    <input type="text" placeholder="Ara" ng-model="search.input" style="height: 100%;">
                                 </md-input-container>
                             </div>
                             <div flex="none" style="background-color: #6d85a9; height: 100%; width: 60px;">
                                 <div layout="row" layout-align="center center" style="height: 100%;">
-                                    <md-button class="srcbtn" aria-label="search bar" flex >
+                                    <md-button ng-click=searchValue() class="srcbtn" aria-label="search bar" flex >
                                         <md-icon md-svg-src="img/ic_search.svg"></md-icon>
                                     </md-button>
                                 </div>

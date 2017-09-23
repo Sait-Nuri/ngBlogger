@@ -1,7 +1,8 @@
 var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'angular-carousel']);
 
-app.config(["SliderProvider", function(SliderProvider) {
+app.config(["SliderProvider", "SearchProvider", function(SliderProvider, SearchProvider) {
     SliderProvider.setSliderUrl('/sliderurl');
+    SearchProvider.setSearchUrl('/search');
 }]);
 
 app.run(['$rootScope', function($rootScope) {

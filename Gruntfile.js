@@ -2,7 +2,7 @@
  * Created by saidnuriPC on 13.08.2017.
  */
 // Gruntfile.js
-'use strict';
+
 // our wrapper function (required by grunt and its plugins)
 // all configuration goes inside this function
 module.exports = function(grunt) {
