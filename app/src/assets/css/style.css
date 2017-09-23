@@ -16,6 +16,10 @@ body{
     height: auto;
 }
 
+img {
+    pointer-events: none;
+}
+
 #header{
     height: 150px;
 }
@@ -115,15 +119,19 @@ md-input-container .md-input{
     height: unset;
 }
 
-#slider_wrapper > ul > li {
+#slider_wrapper > ul > li{
     height: 100%;
 }
 
-#slider_wrapper > ul > li > img{
+#slider_wrapper > ul > li > a{
     height: 100%;
 }
 
-#slider_wrapper > ul > li > div{
+#slider_wrapper > ul > li > a > img{
+    height: 100%;
+}
+
+#slider_wrapper > ul > li > a > div{
     height: 50px;
     width: 100%;
     padding: 10px;

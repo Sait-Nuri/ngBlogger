@@ -1,47 +1,25 @@
 <div style="height: 100%; margin-top: 10px;" >
+
+    <!--Slider kısmı-->
     <div id="slider_main" hide show-gt-sm style="height: 300px; margin: 10px;" >
         <div ng-controller="SliderController" id="slider_wrapper" style="height: 100%; text-align: center; background-color: coral;">
             <ul rn-carousel rn-carousel-index="0" rn-carousel-auto-slide="3" class="carousel5" style="height: 100%;">
-                <li>
-                    <img src="img/news1.png" alt="news 1">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>CCleaner Malware Infects Big Tech Companies With Second Backdoor</h2>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/news2.png" alt="news 2">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>Hacker Can Steal Data from Air-Gapped Computers Using IR CCTV Cameras</h2>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/news3.png" alt="news 3">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>Viacom Left Sensitive Data And Secret Access Key On Unsecured Amazon Server</h2>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/news4.png" alt="news 4">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>Here’s How Hackers Can Hijack Your Online Bitcoin Wallets</h2>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/news5.png" alt="news 5">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>ISPs May Be Helping Hackers to Infect you with FinFisher Spyware</h2>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/news6.png" alt="news 6">
-                    <div class="slider_content_wrapper" layout="column" layout-align="center center">
-                        <h2>Unpatched Windows Kernel Bug Could Help Malware Hinder Detection</h2>
-                    </div>
+                <li ng-repeat="slide in slides">
+                    <img ng-src="{{slide.image_url}}" alt="news 1">
+                    <a ng-href="{{slide.link_url}}">
+                        <div class="slider_content_wrapper" layout="column" layout-align="center center">
+                            <h2>{{slide.title}}</h2>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <!--Başlık-->
     <page-title title="main_page.page_title" style="margin-top: 10px;"></page-title>
+
+    <!--Sayfadaki konular-->
     <thumb-container>
         <thumb attr="main_page"></thumb>
         <thumb attr="main_page"></thumb>
