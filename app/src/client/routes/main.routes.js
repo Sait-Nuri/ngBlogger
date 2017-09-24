@@ -2,7 +2,7 @@
  * Created by saidnuriPC on 9.09.2017.
  */
 app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $urlRouterProvider) {
-    var plugin = {
+    var menu_plugin = {
         home: {
             main_route: {
                 name: 'home',
@@ -62,7 +62,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                                     author: 'Sait UYANIK',
                                     date: '11.02.1992',
                                     num_of_read:'12',
-                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
                                 }
                             }]
                         }
@@ -111,7 +112,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                                     author: 'Sait UYANIK',
                                     date: '11.02.1992',
                                     num_of_read:'12',
-                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
                                 }
 
                             }]
@@ -161,7 +163,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                                     author: 'Sait UYANIK',
                                     date: '11.02.1992',
                                     num_of_read:'12',
-                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
                                 }
                             }]
                         }
@@ -332,27 +335,183 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         }]
     };
 
+    var education_plugin = {
+        appsec: {
+            main_route: {
+                name: 'appsec',
+                url: '/appsec',
+                templateUrl: 'partials/route.appsec.html',
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('APPSEC');
+                    //sunucudan aşağıdaki bilgiler gelecek
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'appsec.page',
+                        request: {
+                            method: 'GET',
+                            url: '/appsec/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Application Security';
+                }]
+            },
+            children: {
+                appsec_page: {
+                    name: 'appsec.page',
+                    url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
+                    views: {
+                        "@": { // Targets unnamed view of root template (index.html)
+                            templateUrl: 'partials/route.page.html',
+                            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
+                                }
+                            }]
+                        }
+                    }
+                }
+            }
+        },
+        netsec: {
+            main_route: {
+                name: 'netsec',
+                url: '/netsec',
+                templateUrl: 'partials/route.netsec.html',
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('APPSEC');
+                    //sunucudan aşağıdaki bilgiler gelecek
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'netsec.page',
+                        request: {
+                            method: 'GET',
+                            url: '/netsec/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Network Security';
+                }]
+            },
+            children: {
+                netsec_page: {
+                    name: 'netsec.page',
+                    url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
+                    views: {
+                        "@": { // Targets unnamed view of root template (index.html)
+                            templateUrl: 'partials/route.page.html',
+                            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
+                                }
+                            }]
+                        }
+                    }
+                }
+            }
+        },
+        endsec: {
+            main_route: {
+                name: 'endsec',
+                url: '/endsec',
+                templateUrl: 'partials/route.endsec.html',
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('APPSEC');
+                    //sunucudan aşağıdaki bilgiler gelecek
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'endsec.page',
+                        request: {
+                            method: 'GET',
+                            url: '/endsec/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Endpoint Security';
+                }]
+            },
+            children: {
+                endsec_page: {
+                    name: 'endsec.page',
+                    url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
+                    views: {
+                        "@": { // Targets unnamed view of root template (index.html)
+                            templateUrl: 'partials/route.page.html',
+                            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
+                                    first_paragraph: 'İlk paragraf'
+                                }
+                            }]
+                        }
+                    }
+                }
+            }
+        }
+    };
+
     $urlRouterProvider.otherwise('/home');
-    $stateProvider.state(plugin.home.main_route);
+    $stateProvider.state(menu_plugin.home.main_route);
 
-    $stateProvider.state(plugin.article.main_route);
-    $stateProvider.state(plugin.article.children.article_page);
+    //Menu plugins
+    $stateProvider.state(menu_plugin.article.main_route);
+    $stateProvider.state(menu_plugin.article.children.article_page);
+    $stateProvider.state(menu_plugin.news.main_route);
+    $stateProvider.state(menu_plugin.news.children.news_page);
+    $stateProvider.state(menu_plugin.tutorial.main_route);
+    $stateProvider.state(menu_plugin.tutorial.children.tutorial_page);
+    $stateProvider.state(menu_plugin.toolbag.main_route);
+    $stateProvider.state(menu_plugin.toolbag.children.toolbag_page);
+    $stateProvider.state(menu_plugin.battlefield.main_route);
+    $stateProvider.state(menu_plugin.battlefield.children.battlefield_page);
+    $stateProvider.state(menu_plugin.itlaws.main_route);
+    $stateProvider.state(menu_plugin.itlaws.children.itlaws_page);
 
-    $stateProvider.state(plugin.news.main_route);
-    $stateProvider.state(plugin.news.children.news_page);
-
-    $stateProvider.state(plugin.tutorial.main_route);
-    $stateProvider.state(plugin.tutorial.children.tutorial_page);
-
-    $stateProvider.state(plugin.toolbag.main_route);
-    $stateProvider.state(plugin.toolbag.children.toolbag_page);
-
-    $stateProvider.state(plugin.battlefield.main_route);
-    $stateProvider.state(plugin.battlefield.children.battlefield_page);
-
-    $stateProvider.state(plugin.itlaws.main_route);
-    $stateProvider.state(plugin.itlaws.children.itlaws_page);
-
+    //Search routing
     $stateProvider.state(search);
+
+    //Education Routing
+    $stateProvider.state(education_plugin.appsec.main_route);
+    $stateProvider.state(education_plugin.appsec.children.appsec_page);
+    $stateProvider.state(education_plugin.netsec.main_route);
+    $stateProvider.state(education_plugin.netsec.children.netsec_page);
+    $stateProvider.state(education_plugin.endsec.main_route);
+    $stateProvider.state(education_plugin.endsec.children.endsec_page);
+
 
 }]);

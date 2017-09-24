@@ -35,10 +35,10 @@
                         <div flex="60" layout="column" layout-align="center" style="height: 100%;">
                             <div flex="65" layout="column" style="height: 100%;">
                                 <div layout="row" layout-align="center center" style="height: 100%;">
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/facebook.png" alt="facebook"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/twitter.png" alt="twitter"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/gplus.png" alt="gplus"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/youtube.png" alt="youtube"></a></div>
+                                    <a href="http://www.facebook.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/facebook.png" alt="facebook"></a>
+                                    <a href="http://www.twitter.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/twitter.png" alt="twitter"></a>
+                                    <a href="https://plus.google.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/gplus.png" alt="gplus"></a>
+                                    <a href="http://www.youtube.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/youtube.png" alt="youtube"></a>
                                 </div>
                                 <div layout="row" layout-align="center center" style="height: 100%;">
                                     <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/linkedin.png" alt="linkedin"></a></div>
@@ -119,17 +119,17 @@
                                     </plugin>
                                     <plugin type="plugins.left2">
                                         <div ng-repeat="item in plugins.left2.items" style="height: 100%;" >
-                                            <menu-item content="item"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left3">
                                         <div ng-repeat="item in plugins.left3.items" style="height: 100%;" >
-                                            <menu-item content="item"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left4">
                                         <div ng-repeat="item in plugins.left4.items" style="height: 100%;" >
-                                            <menu-item content="item"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left5">

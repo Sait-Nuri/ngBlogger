@@ -9,6 +9,9 @@ app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(Slide
     PluginProvider.setRequestUrl('/plugin/toolbag', 'TOOLBAG');
     PluginProvider.setRequestUrl('/plugin/battfield', 'BATTLEFIELD');
     PluginProvider.setRequestUrl('/plugin/itlaws', 'ITLAWS');
+    PluginProvider.setRequestUrl('/plugin/security/appsec', 'APPSEC');
+    PluginProvider.setRequestUrl('/plugin/security/netsec', 'NETSEC');
+    PluginProvider.setRequestUrl('/plugin/security/endsec', 'ENDSEC');
 
 }]);
 

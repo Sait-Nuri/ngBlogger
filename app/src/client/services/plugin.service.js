@@ -41,6 +41,27 @@ app.provider('Plugin', function () {
                 method: 'GET',
                 url: '#'
             }
+        },
+        {
+            type: 'APPSEC',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
+        },
+        {
+            type: 'NETSEC',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
+        },
+        {
+            type: 'ENDSEC',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
         }
     ];
 

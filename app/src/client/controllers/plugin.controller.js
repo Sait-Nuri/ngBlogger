@@ -47,14 +47,17 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             header : 'Eğitimler',
             items: [
                 {
+                    route: 'appsec',
                     title: 'application security',
                     collapse: false
                 },
                 {
+                    route: 'netsec',
                     title: 'network security',
                     collapse: false
                 },
                 {
+                    route: 'endsec',
                     title: 'endpoint security',
                     collapse: false
                 }
