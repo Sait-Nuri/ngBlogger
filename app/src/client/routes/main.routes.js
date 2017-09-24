@@ -8,13 +8,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'home',
                 url: '/home',
                 templateUrl: 'partials/route.mainpage.html',
-                controller: ['$scope', function ($scope) {
-                    $scope.main_page = {
-                        page_title: 'Anasayfa',
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('HOME');
+                    $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
-                        content: 'İçerik içerik içerik'
-                    }
+                        body: 'İçerik içerik içerik'
+                    };
+
+                    $scope.page_title = 'Anasayfa';
                 }]
             },
             children: []
@@ -25,24 +27,43 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'article',
                 url: '/article',
                 templateUrl: 'partials/route.article.html',
-                controller: ['$scope', function ($scope) {
-                    $scope.article_page = {
-                        page_title: 'Yazılar',
-                        title: 'Başlık2',
-                        image: 'Resim2',
-                        content: 'İçerik içerik içerik'
-                    }
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('ARTICLE');
+                    //sunucudan aşağıdaki bilgiler gelecek
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'article.page',
+                        request: {
+                            method: 'GET',
+                            url: '/article/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Yazılar';
                 }]
             },
             children: {
                 article_page: {
                     name: 'article.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
-                            controller: ['$scope', function ($scope) {
-
+                            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                }
                             }]
                         }
                     }
@@ -55,28 +76,44 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'news',
                 url: '/news',
                 templateUrl: 'partials/route.news.html',
-                controller: ['$scope', function ($scope) {
-                    $scope.news_page = {
-                        page_title: 'Haberler',
-                        title: 'Başlık3',
-                        image: 'Resim3',
-                        content: 'İçerik içerik içerik'
-                    }
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('NEWS');
+
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'news.page',
+                        request: {
+                            method: 'GET',
+                            url: '/news/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Haber';
                 }]
             },
             children: {
                 news_page: {
                     name: 'news.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
                             controller: ['$scope', '$stateParams', function ($scope, $stateParams) {
-                                $scope.title = "Başlık " + $stateParams.id;
-                                $scope.page_fab = {
-                                    is_open: false,
-                                    selectedDirection: 'right'
+                                var result = null; //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
                                 }
+
                             }]
                         }
                     }
@@ -89,19 +126,43 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'tutorial',
                 url: '/tutorial',
                 templateUrl: 'partials/route.tutorial.html',
-                controller: ['$scope', function ($scope) {
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('TUTORIAL');
 
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'tutorial.page',
+                        request: {
+                            method: 'GET',
+                            url: '/tutorial/24123'
+                        }
+                    };
+
+                    $scope.page_title = 'Eğitimler';
                 }]
             },
             children: {
                 tutorial_page: {
                     name: 'tutorial.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
                             controller: ['$scope', function ($scope) {
-
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                }
                             }]
                         }
                     }
@@ -114,19 +175,39 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'toolbag',
                 url: '/toolbag',
                 templateUrl: 'partials/route.toolbag.html',
-                controller: ['$scope', function ($scope) {
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('TOOLBAG');
 
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'toolbag.page'
+                    };
+
+                    $scope.page_title = 'Alet Çantası';
                 }]
             },
             children: {
                 toolbag_page : {
                     name: 'toolbag.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
                             controller: ['$scope', function ($scope) {
-
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                }
                             }]
                         }
                     }
@@ -139,19 +220,39 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'battlefield',
                 url: '/battlefield',
                 templateUrl: 'partials/route.battlefield.html',
-                controller: ['$scope', function ($scope) {
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('BATTLEFIELD');
 
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'battlefield.page'
+                    };
+
+                    $scope.page_title = 'Er Meydanı';
                 }]
             },
             children: {
                 battlefield_page: {
                     name: 'battlefield.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
                             controller: ['$scope', function ($scope) {
-
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                }
                             }]
                         }
                     }
@@ -164,19 +265,39 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 name: 'itlaws',
                 url: '/itlaws',
                 templateUrl: 'partials/route.itlaws.html',
-                controller: ['$scope', function ($scope) {
+                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
+                    //$scope.content = Plugin.getContent('ITLAWS');
 
+                    $scope.content = {
+                        title: 'Başlık',
+                        image: 'Resim',
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'itlaws.page'
+                    };
+
+                    $scope.page_title = 'Bilişim Hukuku';
                 }]
             },
             children: {
                 itlaws_page: {
                     name: 'itlaws.page',
                     url: '/:id',
+                    params:{
+                        id: null,
+                        request: null
+                    },
                     views: {
                         "@": { // Targets unnamed view of root template (index.html)
                             templateUrl: 'partials/route.page.html',
                             controller: ['$scope', function ($scope) {
-
+                                //Request.request($stateParams.request);
+                                $scope.content = {
+                                    author: 'Sait UYANIK',
+                                    date: '11.02.1992',
+                                    num_of_read:'12',
+                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain'
+                                }
                             }]
                         }
                     }

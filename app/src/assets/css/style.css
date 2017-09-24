@@ -20,6 +20,12 @@ img {
     pointer-events: none;
 }
 
+a {
+    text-decoration: none ;
+    color:black;
+    cursor:pointer;
+}
+
 #header{
     height: 150px;
 }

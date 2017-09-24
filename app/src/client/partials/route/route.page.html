@@ -1,23 +1,23 @@
 <div ng-controller="PageController" flex layout="column" style="margin-top: 10px;">
     <div flex="none" layout="column" layout-wrap style="background-color: #6d85a9; padding: 5px; height: 100%;">
         <div flex="none" style="padding: 5px; height: 100%;" layout="row" layout-align="center center">
-            <div flex><h2>Facebook slapped with $1.43 million fine for violating users' privacy in Spain</h2></div>
+            <div flex><h2>{{content.title}}</h2></div>
         </div>
         <div flex="none" layout="column" layout-gt-xs="row" layout-align="center center" style="height: 100%; padding-left: 5px; padding-right: 5px; margin-bottom: 5px;">
             <div flex="initial" style="height: 100%;" layout="row" layout-align="center center">
                 <div id="title_date" flex="initial" layout="row" layout-align="center center"  style="height: 100%;">
                     <div flex="none" layout="row" layout-align="center center" ><img src="img/calendar.svg" alt="calendar" style="height: 18px; width: 18px;"></div>
-                    <div flex="none" layout="row" layout-align="center none" style="padding: 2px; color: #eaeaea; font-size: 12px;">11.02.1992</div>
+                    <div flex="none" layout="row" layout-align="center none" style="padding: 2px; color: #eaeaea; font-size: 12px;">{{content.date}}</div>
                 </div>
                 <div id="title_author" flex="initial" layout="row" layout-align="center center" style="height: 100%; margin-left: 5px;">
                     <div flex="initial" layout="row" layout-align="center center"><img src="img/author.svg" alt="calendar" style="height: 18px; width: 18px;"></div>
-                    <div flex layout="row" layout-align="center none" style="margin-left:2px; padding: 2px; color: #eaeaea; font-size: 12px;">Sait Nuri UYANIK</div>
+                    <div flex layout="row" layout-align="center none" style="margin-left:2px; padding: 2px; color: #eaeaea; font-size: 12px;">{{content.author}}</div>
                 </div>
             </div>
             <div flex></div>
             <div flex="none" layout="row" style="height: 100%;" >
                 <div flex="none" style="color: #eaeaea; font-size: 14px;">Okuma Sayısı:</div>
-                <div flex="none" style="color: #cb2927; font-size: 16px; margin-left: 4px;"><b>6</b></div>
+                <div flex="none" style="color: #cb2927; font-size: 16px; margin-left: 4px;"><b>{{content.num_of_read}}</b></div>
             </div>
         </div>
         <div flex>
@@ -47,7 +47,8 @@
         </div>
     </div>
     <div flex style="margin: 5px;">
-        <p>It's ironic—the company that offers credit monitoring and ID theft protection solutions has itself been compromised, exposing personal information of as many as 143 million Americans—that's almost half the country.
+        <p>
+            It's ironic—the company that offers credit monitoring and ID theft protection solutions has itself been compromised, exposing personal information of as many as 143 million Americans—that's almost half the country.
             Equifax, one of the three largest credit reporting firm in the United States, admitted today that it had suffered a massive data breach somewhere between mid-May and July this year, which it actually discovered on July 29—that means the data of 143 million people were exposed for over 3 months.
             However, it's unknown why Equifax waited 6 weeks before informing their millions of affected customers about the massive security breach.
         </p>

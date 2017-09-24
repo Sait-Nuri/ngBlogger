@@ -1,4 +1,5 @@
 app.controller('PluginController', ['$scope' ,function ($scope) {
+    // Plugins Menu configuration
     $scope.plugins = {
 
         left1 : {

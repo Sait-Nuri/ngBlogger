@@ -1,12 +1,12 @@
 <div flex-gt-md="50" flex="100" style="height: 200px; padding: 8px;">
     <div style="height: 100%; ">
-        <div layout="column" style="height: 100%;">
+        <a ui-sref="{{attr.page_route}}({id: attr.id, request: attr.request})" layout="column" style="height: 100%;">
             <div flex="20" style="background-color: #444444; color: #fafafa">{{attr.title}}</div>
             <div flex-gt-sm="65" flex layout="row">
                 <div flex="none" hide show-gt-sm style="width: 120px; background-color: #b8a42c;">{{attr.image}}</div>
-                <div flex style="background-color: #fafafa;">{{attr.content}}</div>
+                <div flex style="background-color: #fafafa;">{{attr.body}}</div>
             </div>
             <div flex="15" style="background-color: darkgray;"></div>
-        </div>
+        </a>
     </div>
 </div>

@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('SliderController', ['$scope', 'Slider' ,function ($scope, Slider) {
-    var slides =  Slider.getSlides();
-    console.log(slides);
+    //var slides =  Slider.getSlides();
+    //console.log(slides);
 
     //Sunucu tamamlandığında yukarıdaki slides scope'a atanacak
     $scope.slides = [

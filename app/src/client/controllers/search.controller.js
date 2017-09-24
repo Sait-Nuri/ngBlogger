@@ -4,7 +4,6 @@ app.controller('SearchController', ['$scope', '$state', 'Search' ,function ($sco
     };
 
     $scope.searchValue = function () {
-        var results = Search.search_request;
         $state.go('search', {input: $scope.search.input});
     };
 }]);

@@ -1,8 +1,15 @@
 var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'angular-carousel']);
 
-app.config(["SliderProvider", "SearchProvider", function(SliderProvider, SearchProvider) {
+app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(SliderProvider, SearchProvider, PluginProvider) {
     SliderProvider.setSliderUrl('/sliderurl');
     SearchProvider.setSearchUrl('/search');
+    PluginProvider.setRequestUrl('/plugin/home', 'HOME');
+    PluginProvider.setRequestUrl('/plugin/news', 'NEWS');
+    PluginProvider.setRequestUrl('/plugin/article', 'ARTICLE');
+    PluginProvider.setRequestUrl('/plugin/toolbag', 'TOOLBAG');
+    PluginProvider.setRequestUrl('/plugin/battfield', 'BATTLEFIELD');
+    PluginProvider.setRequestUrl('/plugin/itlaws', 'ITLAWS');
+
 }]);
 
 app.run(['$rootScope', function($rootScope) {
