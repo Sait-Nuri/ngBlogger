@@ -1,4 +1,4 @@
-app.controller('PluginController', ['$scope', 'Plugin' ,function ($scope, Plugin) {
+app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($scope, Plugin, Request) {
 
     //Sunucu tarafı hazır olduğunda buradaki değişkenler
     // plugins.left#.items.params'a atanacak
@@ -219,24 +219,34 @@ app.controller('PluginController', ['$scope', 'Plugin' ,function ($scope, Plugin
             ]
         },
         right1: {
-            'margin_top': '0px',
-            'margin_bottom': '5px',
-            'header': 'Son paylaşımlar'
-        },
-        right2: {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Durum Bilginiz'
         },
-        right3: {
+        right2: {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Bizi takip edin'
         },
-        right4: {
+        right3: {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Abone ol, Siber olaylardan haberin olsun'
         }
     };
+
+     $scope.subscriber = {
+         email: null
+     };
+
+
+     $scope.subscribe = function () {
+         var subsribtion_request = {
+             method: 'POST',
+             url: '/subscribe',
+             data: $scope.subscriber.email
+         };
+
+         //Request.request(subsribtion_request);
+     }
 }]);

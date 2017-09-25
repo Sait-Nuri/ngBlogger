@@ -154,9 +154,23 @@
                                 <div flex="none" style="width: 7px; height: 100%;"></div>
                                 <div flex style="height: 100%;">
                                     <plugin type="plugins.right1">Some Content Here</plugin>
-                                    <plugin type="plugins.right2">Some Content Here</plugin>
-                                    <plugin type="plugins.right3">Some Content Here</plugin>
-                                    <plugin type="plugins.right4">Some Content Here</plugin>
+                                    <plugin type="plugins.right2">
+                                        <a class="twitter-timeline" data-lang="tr" data-height="400" href="https://twitter.com/TheHackersNews">Tweets by TheHackersNews</a>
+                                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    </plugin>
+                                    <plugin type="plugins.right3">
+                                        <div flex layout="column" layout-align="center center" style="height: 110px;">
+                                            <div flex="initial" style="width: 100%; padding: 3px;">
+                                                <md-input-container>
+                                                    <label>E-posta adresiniz...</label>
+                                                    <input name="email" ng-model="subscriber.email" required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                                                </md-input-container>
+                                            </div>
+                                            <div flex="initial" style="width: 100%; padding: 3px;">
+                                                <md-button ng-click="subscribe()" style="padding: 0; margin: 0; min-width: 100%;" class="md-raised md-primary">Kaydol</md-button>
+                                            </div>
+                                        </div>
+                                    </plugin>
                                 </div>
                             </div>
                         </div>
