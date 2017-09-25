@@ -62,6 +62,27 @@ app.provider('Plugin', function () {
                 method: 'GET',
                 url: '#'
             }
+        },
+        {
+            type: 'MEDIKON',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
+        },
+        {
+            type: 'GUVONER',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
+        },
+        {
+            type: 'SACMA',
+            request: {
+                method: 'GET',
+                url: '#'
+            }
         }
     ];
 

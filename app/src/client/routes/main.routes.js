@@ -485,6 +485,75 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         }
     };
 
+    //Merak edilen konular
+    var medikon = {
+        main_route: {
+            name: 'medikon',
+            url: '/medikon/:id',
+            params:{
+                id: null,
+                request: null
+            },
+            templateUrl: 'partials/route.page.html',
+            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                //Request.request($stateParams.request);
+                $scope.content = {
+                    title: 'Başlık',
+                    image: 'Resim',
+                    body: 'İçerik içerik içerik'
+                };
+
+                $scope.page_title = 'Merak edilen konular';
+            }]
+        }
+    };
+
+    // Güvenlik Önerileri
+    var guvoner = {
+        main_route: {
+            name: 'guvoner',
+            url: '/guvoner/:id',
+            params:{
+                id: null,
+                request: null
+            },
+            templateUrl: 'partials/route.page.html',
+            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                //Request.request($stateParams.request);
+                $scope.content = {
+                    title: 'Başlık',
+                    image: 'Resim',
+                    body: 'İçerik içerik içerik'
+                };
+
+                $scope.page_title = 'Merak edilen konular';
+            }]
+        }
+    };
+
+    //Saçma soapan meseleler
+    var sacma = {
+        main_route: {
+            name: 'sacma',
+            url: '/sacma/:id',
+            params:{
+                id: null,
+                request: null
+            },
+            templateUrl: 'partials/route.page.html',
+            controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
+                //Request.request($stateParams.request);
+                $scope.content = {
+                    title: 'Başlık',
+                    image: 'Resim',
+                    body: 'İçerik içerik içerik'
+                };
+
+                $scope.page_title = 'Merak edilen konular';
+            }]
+        }
+    };
+
     $urlRouterProvider.otherwise('/home');
     $stateProvider.state(menu_plugin.home.main_route);
 
@@ -502,10 +571,10 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     $stateProvider.state(menu_plugin.itlaws.main_route);
     $stateProvider.state(menu_plugin.itlaws.children.itlaws_page);
 
-    //Search routing
+    //Arama yönlendiricisi
     $stateProvider.state(search);
 
-    //Education Routing
+    //Eğitim Yönlendiricisi
     $stateProvider.state(education_plugin.appsec.main_route);
     $stateProvider.state(education_plugin.appsec.children.appsec_page);
     $stateProvider.state(education_plugin.netsec.main_route);
@@ -513,5 +582,13 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     $stateProvider.state(education_plugin.endsec.main_route);
     $stateProvider.state(education_plugin.endsec.children.endsec_page);
 
+    //Merak edilen konular
+    $stateProvider.state(medikon.main_route);
+
+    //Güvenlik Önlemleri
+    $stateProvider.state(guvoner.main_route);
+
+    //Saçma Sapan Sorular
+    $stateProvider.state(sacma.main_route);
 
 }]);

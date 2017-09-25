@@ -12,8 +12,21 @@ app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(Slide
     PluginProvider.setRequestUrl('/plugin/security/appsec', 'APPSEC');
     PluginProvider.setRequestUrl('/plugin/security/netsec', 'NETSEC');
     PluginProvider.setRequestUrl('/plugin/security/endsec', 'ENDSEC');
-
+    PluginProvider.setRequestUrl('/plugin/medikon', 'MEDIKON');
+    PluginProvider.setRequestUrl('/plugin/guvoner', 'GUVONER');
+    PluginProvider.setRequestUrl('/plugin/sacma', 'SACMA');
 }]);
+
+app.constant('Social', {
+    facebook: 'https://www.facebook.com',
+    twitter: 'https://www.twitter.com',
+    gplus: 'https://www.plus.google.com',
+    youtube: 'https://www.youtube.com',
+    linkedin: 'https://www.linkedin.com/',
+    pinterest: 'https://www.pinterest.com',
+    github: 'https://www.github.com/',
+    dropbox: 'https://www.dropbox.com'
+});
 
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {

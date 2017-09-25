@@ -35,16 +35,16 @@
                         <div flex="60" layout="column" layout-align="center" style="height: 100%;">
                             <div flex="65" layout="column" style="height: 100%;">
                                 <div layout="row" layout-align="center center" style="height: 100%;">
-                                    <a href="http://www.facebook.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/facebook.png" alt="facebook"></a>
-                                    <a href="http://www.twitter.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/twitter.png" alt="twitter"></a>
-                                    <a href="https://plus.google.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/gplus.png" alt="gplus"></a>
-                                    <a href="http://www.youtube.com" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/youtube.png" alt="youtube"></a>
+                                    <a ng-href="{{social.facebook}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/facebook.png" alt="facebook"></a>
+                                    <a ng-href="{{social.twitter}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/twitter.png" alt="twitter"></a>
+                                    <a ng-href="{{social.gplus}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/gplus.png" alt="gplus"></a>
+                                    <a ng-href="{{social.youtube}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/youtube.png" alt="youtube"></a>
                                 </div>
                                 <div layout="row" layout-align="center center" style="height: 100%;">
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/linkedin.png" alt="linkedin"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/pinterest.png" alt="pinterest"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/github.png" alt="github"></a></div>
-                                    <div style="height: 32px; width: 32px; padding: 3px;"><a href="#"><img class="md-whiteframe-2dp" src="img/dropbox.png" alt="dropbox"></a></div>
+                                    <a ng-href="{{social.linkedin}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/linkedin.png" alt="linkedin"></a>
+                                    <a ng-href="{{social.pinterest}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/pinterest.png" alt="pinterest"></a>
+                                    <a ng-href="{{social.github}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/github.png" alt="github"></a>
+                                    <a ng-href="{{social.dropbox}}" target="_blank" style="height: 32px; width: 32px; padding: 3px;"><img class="md-whiteframe-2dp" src="img/dropbox.png" alt="dropbox"></a>
                                 </div>
                             </div>
                         </div>
@@ -124,17 +124,17 @@
                                     </plugin>
                                     <plugin type="plugins.left3">
                                         <div ng-repeat="item in plugins.left3.items" style="height: 100%;" >
-                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left4">
                                         <div ng-repeat="item in plugins.left4.items" style="height: 100%;" >
-                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left5">
                                         <div ng-repeat="item in plugins.left5.items" style="height: 100%;" >
-                                            <menu-item content="item"></menu-item>
+                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
                                         </div>
                                     </plugin>
                                 </div>

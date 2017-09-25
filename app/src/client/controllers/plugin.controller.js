@@ -1,4 +1,18 @@
-app.controller('PluginController', ['$scope' ,function ($scope) {
+app.controller('PluginController', ['$scope', 'Plugin' ,function ($scope, Plugin) {
+
+    //Sunucu tarafı hazır olduğunda buradaki değişkenler
+    // plugins.left#.items.params'a atanacak
+
+    //Burada title, id, request dizisi gelecek
+    //Bu dizi left3.items 'e atanacak
+    var medikon = Plugin.getContent('MEDIKON');
+
+    //Bu dizi left4.items 'e atanacak
+    var guvoner = Plugin.getContent('GUVONER');
+
+    //Bu dizi left5.items 'e atanacak
+    var sacma = Plugin.getContent('SACMA');
+
     // Plugins Menu configuration
     $scope.plugins = {
 
@@ -70,18 +84,50 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             items: [
                 {
                     title: 'Hacker kime denir/denmez?',
+                    params:{
+                        id: '41231',
+                        request: {
+                            method: 'GET',
+                            url: '/medikon/41231'
+                        }
+                    },
+                    route: 'medikon',
                     collapse: false
                 },
                 {
                     title: 'Güvenlik açığı nedir? nasıl oluşur?',
+                    params:{
+                        id: '34234',
+                        request: {
+                            method: 'GET',
+                            url: '/medikon/34234'
+                        }
+                    },
+                    route: 'medikon',
                     collapse: false
                 },
                 {
                     title: 'Büyük saldırılar nasıl yapılır?',
+                    params:{
+                        id: '432423',
+                        request: {
+                            method: 'GET',
+                            url: '/medikon/432423'
+                        }
+                    },
+                    route: 'medikon',
                     collapse: false
                 },
                 {
                     title: 'Siber ordu nedir?',
+                    params:{
+                        id: '34242312',
+                        request: {
+                            method: 'GET',
+                            url: '/medikon/34242312'
+                        }
+                    },
+                    route: 'medikon',
                     collapse: false
                 }
             ]
@@ -93,15 +139,39 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             items: [
                 {
                     title: 'Antivirüs Önerileri',
-                    collapse: false
+                    collapse: false,
+                    route: 'guvoner',
+                    params:{
+                        id: '2342',
+                        request: {
+                            method: 'GET',
+                            url: '/guvoner/2342'
+                        }
+                    }
                 },
                 {
                     title: 'güvenli alışveriş',
-                    collapse: false
+                    collapse: false,
+                    route: 'guvoner',
+                    params:{
+                        id: '222342334',
+                        request: {
+                            method: 'GET',
+                            url: '/guvoner/222342334'
+                        }
+                    }
                 },
                 {
                     title: 'güçlü şifre nasıl oluşturulur.',
-                    collapse: false
+                    collapse: false,
+                    route: 'guvoner',
+                    params:{
+                        id: '3434131',
+                        request: {
+                            method: 'GET',
+                            url: '/guvoner/3434131'
+                        }
+                    }
                 }
             ]
         },
@@ -112,15 +182,39 @@ app.controller('PluginController', ['$scope' ,function ($scope) {
             items: [
                 {
                     title: 'Falan kişinin facesini patlatabilir misin?',
-                    collapse: false
+                    collapse: false,
+                    route: 'sacma',
+                    params:{
+                        id: '2342',
+                        request: {
+                            method: 'GET',
+                            url: '/sacma/2342'
+                        }
+                    }
                 },
                 {
                     title: 'Antivirüse ihtiyacım yok.',
-                    collapse: false
+                    collapse: false,
+                    route: 'sacma',
+                    params:{
+                        id: '1231231',
+                        request: {
+                            method: 'GET',
+                            url: '/sacma/1231231'
+                        }
+                    }
                 },
                 {
                     title: 'Ben hekırım olm',
-                    collapse: false
+                    collapse: false,
+                    route: 'sacma',
+                    params:{
+                        id: '1234134',
+                        request: {
+                            method: 'GET',
+                            url: '/sacma/1234134'
+                        }
+                    }
                 }
             ]
         },
