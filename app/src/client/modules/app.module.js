@@ -15,6 +15,8 @@ app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(Slide
     PluginProvider.setRequestUrl('/plugin/medikon', 'MEDIKON');
     PluginProvider.setRequestUrl('/plugin/guvoner', 'GUVONER');
     PluginProvider.setRequestUrl('/plugin/sacma', 'SACMA');
+    PluginProvider.setRequestUrl('/plugin/geoinfo', 'GEOINFO');
+
 }]);
 
 app.constant('Social', {

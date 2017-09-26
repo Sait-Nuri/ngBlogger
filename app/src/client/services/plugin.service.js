@@ -83,6 +83,13 @@ app.provider('Plugin', function () {
                 method: 'GET',
                 url: '#'
             }
+        },
+        {
+            type: 'GEOINFO',
+            request: {
+                method: 'GET',
+                url: '½'
+            }
         }
     ];
 

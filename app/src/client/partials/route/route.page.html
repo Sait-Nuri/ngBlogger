@@ -73,6 +73,9 @@
             Stay tuned for more information, stay safe online.
         </p>
     </div>
+    <div flex>
+        <md-chips ng-model="content.tags" readonly="true"></md-chips>
+    </div>
     <div ng-controller="CommentController" flex="noshrink" layout="column" >
         <div flex="init" style><h3>YORUMLAR</h3></div>
         <write-comment></write-comment>

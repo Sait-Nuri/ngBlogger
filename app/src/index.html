@@ -153,7 +153,15 @@
                             <div layout="row" style="height: 100%;">
                                 <div flex="none" style="width: 7px; height: 100%;"></div>
                                 <div flex style="height: 100%;">
-                                    <plugin type="plugins.right1">Some Content Here</plugin>
+                                    <plugin type="plugins.right1">
+                                        <div flex style="padding: 5px; line-height: 0.5; font-size: 14px; font-family: sans-serif;">
+                                            <p><b>Your IP address:</b> <span>{{plugins.right1.attr.ip}}</span></p>
+                                            <p><b>Country:</b> <span>{{plugins.right1.attr.country}}</span></p>
+                                            <p><b>City:</b> <span>{{plugins.right1.attr.city}}</span></p>
+                                            <p><b>Browser:</b> <span>{{plugins.right1.attr.browser}}</span></p>
+                                            <p><b>ISP:</b> <span>{{plugins.right1.attr.isp}}</span></p>
+                                        </div>
+                                    </plugin>
                                     <plugin type="plugins.right2">
                                         <a class="twitter-timeline" data-lang="tr" data-height="400" href="https://twitter.com/TheHackersNews">Tweets by TheHackersNews</a>
                                         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

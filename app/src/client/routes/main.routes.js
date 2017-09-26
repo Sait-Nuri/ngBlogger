@@ -63,7 +63,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                                     date: '11.02.1992',
                                     num_of_read:'12',
                                     title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
-                                    first_paragraph: 'İlk paragraf'
+                                    first_paragraph: 'İlk paragraf',
+                                    tags: ['security', 'infosec', 'data-breach']
                                 }
                             }]
                         }

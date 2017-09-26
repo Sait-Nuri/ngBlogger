@@ -10,8 +10,11 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
     //Bu dizi left4.items 'e atanacak
     var guvoner = Plugin.getContent('GUVONER');
 
-    //Bu dizi left5.items 'e atanacak
+    // Bu dizi left5.items 'e atanacak
     var sacma = Plugin.getContent('SACMA');
+
+    // Ziyaretçinin ip lokasyon bilgilerini sorugla
+    var geoinfo = Plugin.getContent('GEOINFO');
 
     // Plugins Menu configuration
     $scope.plugins = {
@@ -221,7 +224,14 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
         right1: {
             'margin_top': '5px',
             'margin_bottom': '5px',
-            'header': 'Durum Bilginiz'
+            'header': 'Durum Bilginiz',
+            attr:{
+                ip: '10.0.0.2',
+                country: 'Türkiye',
+                city: 'İstanbul',
+                browser: 'Chrome',
+                isp: 'Superonline'
+            }
         },
         right2: {
             'margin_top': '5px',
