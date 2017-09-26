@@ -547,7 +547,12 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 $scope.content = {
                     title: 'Başlık',
                     image: 'Resim',
-                    body: 'İçerik içerik içerik'
+                    body: 'İçerik içerik içerik',
+                    request: {
+                        method: 'POST',
+                        url: '/message/' + $stateParams.id,
+                        data: ''
+                    }
                 };
 
                 $scope.page_title = 'Merak edilen konular';

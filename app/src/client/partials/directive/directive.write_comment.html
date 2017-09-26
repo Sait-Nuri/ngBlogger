@@ -1,4 +1,4 @@
-<div id="write_comment" flex="noshrink" layout="row">
+<div ng-controller="CommentController" id="write_comment" flex="noshrink" layout="row">
     <div flex="10" flex-xs="20" layout="column"  style="background-color: #aeff93; ">
         <div flex="initial" layout="row" layout-align="center center" style="margin: 5px;">
             <div flex="initial" style="height: 48px; width: 48px;">
@@ -15,12 +15,12 @@
         <div flex="initial" style="padding-left: 2px; padding-right: 2px;">
             <md-input-container class="md-block" style="background-color: #c0ccbe; height: 100%; margin: unset; padding: unset; border-top: 1px solid #a4a4a4">
                 <label>Yorum Yaz</label>
-                <textarea style="height: 0;" rows="5" md-select-on-focus ></textarea>
+                <textarea title="write comment" ng-model="attr.request.data" style="height: 0;" rows="5" md-select-on-focus ></textarea>
             </md-input-container>
         </div>
         <div flex="initial" layout="row" layout-align="end center">
-            <div layout="row" layout-align="end center" style="padding: 2px;">
-                <md-button style="height: ;: 36px; margin: unset; padding-right: 10px; min-width: unset; min-height: unset; ">
+            <div layout="row" layout-align="end center">
+                <md-button ng-click="sendMessage(attr.request)" style="height: 36px; margin: unset; padding-right: 10px; min-width: unset; min-height: unset; border-radius:0 ; ">
                     <img src="img/send_comment.png" alt="send comment" style="height: 36px; width: 48px;">
                 </md-button>
             </div>

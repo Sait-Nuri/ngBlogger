@@ -76,9 +76,9 @@
     <div flex>
         <md-chips ng-model="content.tags" readonly="true"></md-chips>
     </div>
-    <div ng-controller="CommentController" flex="noshrink" layout="column" >
+    <div flex="noshrink" layout="column" >
         <div flex="init" style><h3>YORUMLAR</h3></div>
-        <write-comment></write-comment>
+        <write-comment attr="content"></write-comment>
         <comment-base></comment-base>
         <comment-reply></comment-reply>
         <comment-reply></comment-reply>

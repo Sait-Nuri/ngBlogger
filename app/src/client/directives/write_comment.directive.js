@@ -5,7 +5,7 @@ app.directive('writeComment', function() {
     directive.templateUrl = "partials/directive.write_comment.html";
 
     directive.scope = {
-
+        attr : "="
     };
 
     return directive;
