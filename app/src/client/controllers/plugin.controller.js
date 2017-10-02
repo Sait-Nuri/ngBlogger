@@ -23,40 +23,44 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
             'margin_top': '0px',
             'margin_bottom': '5px',
             'header': 'Menü',
-            home: {
-                'title': 'anasayfa',
-                'collapse': true,
-                'toggle': false,
-                'sublist': [
-                    {'title': 'sub1'},
-                    {'title': 'sub2'},
-                    {'title': 'sub3'}
-                ]
-            },
-            news: {
-                'title': 'haberler',
-                'collapse': false
-            },
-
-            article: {
-                'title': 'yazılar',
-                'collapse': false
-            },
-
-            toolbag: {
-                'title': 'Alet Çantası',
-                'collapse': false
-            },
-
-            battlefield: {
-                'title': 'Er meydanı',
-                'collapse': false
-            },
-
-            itlaws: {
-                'title': 'Bilişim Hukuku',
-                'collapse': false
-            }
+            items: [
+                {
+                    route: 'home',
+                    title: 'anasayfa',
+                    collapse: true,
+                    toggle: false,
+                    sublist: [
+                        {'title': 'sub1'},
+                        {'title': 'sub2'},
+                        {'title': 'sub3'}
+                    ]
+                },
+                {
+                    route: 'news',
+                    title: 'haberler',
+                    collapse: false
+                },
+                {
+                    route: 'article',
+                    title: 'yazılar',
+                    collapse: false
+                },
+                {
+                    route: 'toolbag',
+                    title: 'Alet Çantası',
+                    collapse: false
+                },
+                {
+                    route: 'battlefield',
+                    title: 'Er meydanı',
+                    collapse: false
+                },
+                {
+                    route: 'itlaws',
+                    title: 'Bilişim Hukuku',
+                    collapse: false
+                }
+            ]
         },
         left2 : {
             margin_top: '5px',
@@ -135,7 +139,7 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 }
             ]
         },
-        left4: {
+        left4 : {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Güvenlik Önerileri',
@@ -178,7 +182,7 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 }
             ]
         },
-        left5: {
+        left5 : {
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Saçma sapan sorular ve düşünceler',

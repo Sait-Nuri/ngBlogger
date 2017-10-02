@@ -110,12 +110,9 @@
                             <div layout="row" style="height:100%;">
                                 <div id="plugin_wrapper" flex style="height: 100%;">
                                     <plugin type="plugins.left1" style="height: auto;">
-                                        <menu-item content="plugins.left1.home" ui-sref="home"></menu-item>
-                                        <menu-item content="plugins.left1.article" ui-sref="article"></menu-item>
-                                        <menu-item content="plugins.left1.news" ui-sref="news"></menu-item>
-                                        <menu-item content="plugins.left1.toolbag" ui-sref="toolbag"></menu-item>
-                                        <menu-item content="plugins.left1.battlefield" ui-sref="battlefield"></menu-item>
-                                        <menu-item content="plugins.left1.itlaws" ui-sref="itlaws"></menu-item>
+                                        <div ng-repeat="item in plugins.left1.items" style="height: 100%;" >
+                                            <menu-item content="item" ui-sref="{{item.route}}"></menu-item>
+                                        </div>
                                     </plugin>
                                     <plugin type="plugins.left2">
                                         <div ng-repeat="item in plugins.left2.items" style="height: 100%;" >
