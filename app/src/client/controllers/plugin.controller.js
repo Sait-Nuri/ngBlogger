@@ -253,7 +253,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
          email: null
      };
 
-
      $scope.subscribe = function () {
          var subsribtion_request = {
              method: 'POST',

@@ -1,4 +1,5 @@
 app.provider('Plugin', function () {
+    //Ana konu yapıları
     this.plugins = [
         {
             type: 'HOME',

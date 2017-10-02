@@ -13,7 +13,13 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                     $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
-                        body: 'İçerik içerik içerik'
+                        body: 'İçerik içerik içerik',
+                        id: '24123',
+                        page_route: 'article.page',
+                        request: {
+                            method: 'GET',
+                            url: '/article/24123'
+                        }
                     };
 
                     $scope.page_title = 'Anasayfa';
@@ -21,7 +27,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
             },
             children: []
         },
-
         article: {
             main_route: {
                 name: 'article',
@@ -72,7 +77,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 }
             }
         },
-
         news: {
             main_route: {
                 name: 'news',
@@ -123,57 +127,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 }
             }
         },
-
-        tutorial: {
-            main_route: {
-                name: 'tutorial',
-                url: '/tutorial',
-                templateUrl: 'partials/route.tutorial.html',
-                controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('TUTORIAL');
-
-                    $scope.content = {
-                        title: 'Başlık',
-                        image: 'Resim',
-                        body: 'İçerik içerik içerik',
-                        id: '24123',
-                        page_route: 'tutorial.page',
-                        request: {
-                            method: 'GET',
-                            url: '/tutorial/24123'
-                        }
-                    };
-
-                    $scope.page_title = 'Eğitimler';
-                }]
-            },
-            children: {
-                tutorial_page: {
-                    name: 'tutorial.page',
-                    url: '/:id',
-                    params:{
-                        id: null,
-                        request: null
-                    },
-                    views: {
-                        "@": { // Targets unnamed view of root template (index.html)
-                            templateUrl: 'partials/route.page.html',
-                            controller: ['$scope', function ($scope) {
-                                //Request.request($stateParams.request);
-                                $scope.content = {
-                                    author: 'Sait UYANIK',
-                                    date: '11.02.1992',
-                                    num_of_read:'12',
-                                    title: 'Facebook slapped with $1.43 million fine for violating users\' privacy in Spain',
-                                    first_paragraph: 'İlk paragraf'
-                                }
-                            }]
-                        }
-                    }
-                }
-            }
-        },
-
         toolbag: {
             main_route: {
                 name: 'toolbag',
@@ -218,7 +171,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 }
             }
         },
-
         battlefield: {
             main_route: {
                 name: 'battlefield',
@@ -263,7 +215,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 }
             }
         },
-
         itlaws: {
             main_route: {
                 name: 'itlaws',
@@ -308,32 +259,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 }
             }
         }
-
-
-    };
-
-    var search = {
-        name: 'search',
-        url: '/search',
-        templateUrl: 'partials/route.search.html',
-        params:{
-            input: ''
-        },
-        controller: ['$scope', '$stateParams', 'Search', function ($scope, $stateParams, Search) {
-            $scope.input = $stateParams.input;
-            Search.getResults($stateParams.input);
-            $scope.results_demo = [
-                {
-                    body: 'Sonuç 1'
-                },
-                {
-                    body: 'Sonuç 2'
-                },
-                {
-                    body: 'Sonuç 3'
-                }
-            ];
-        }]
     };
 
     var education_plugin = {
@@ -486,6 +411,30 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         }
     };
 
+    var search = {
+        name: 'search',
+        url: '/search',
+        templateUrl: 'partials/route.search.html',
+        params:{
+            input: ''
+        },
+        controller: ['$scope', '$stateParams', 'Search', function ($scope, $stateParams, Search) {
+            $scope.input = $stateParams.input;
+            Search.getResults($stateParams.input);
+            $scope.results_demo = [
+                {
+                    body: 'Sonuç 1'
+                },
+                {
+                    body: 'Sonuç 2'
+                },
+                {
+                    body: 'Sonuç 3'
+                }
+            ];
+        }]
+    };
+
     //Merak edilen konular
     var medikon = {
         main_route: {
@@ -568,8 +517,6 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
     $stateProvider.state(menu_plugin.article.children.article_page);
     $stateProvider.state(menu_plugin.news.main_route);
     $stateProvider.state(menu_plugin.news.children.news_page);
-    $stateProvider.state(menu_plugin.tutorial.main_route);
-    $stateProvider.state(menu_plugin.tutorial.children.tutorial_page);
     $stateProvider.state(menu_plugin.toolbag.main_route);
     $stateProvider.state(menu_plugin.toolbag.children.toolbag_page);
     $stateProvider.state(menu_plugin.battlefield.main_route);
