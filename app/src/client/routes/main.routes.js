@@ -509,6 +509,18 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         }
     };
 
+    var admin_panel = {
+        main_route: {
+            name: 'admin',
+            url: '/admin',
+            templateUrl: 'partials/route.admin_main.html',
+            controller: ['$scope', function ($scope) {
+                $scope.userState = '';
+                $scope.element_types = ['paragraf', 'video', 'resim', 'link']
+            }]
+        }
+    };
+
     $urlRouterProvider.otherwise('/home');
     $stateProvider.state(menu_plugin.home.main_route);
 
@@ -543,5 +555,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
 
     //Saçma Sapan Sorular
     $stateProvider.state(sacma.main_route);
+
+    //Admin sayfası
+    $stateProvider.state(admin_panel.main_route);
 
 }]);

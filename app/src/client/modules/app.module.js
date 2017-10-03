@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'angular-carousel']);
+var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'angular-carousel', 'xeditable']);
 
 app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(SliderProvider, SearchProvider, PluginProvider) {
     SliderProvider.setSliderUrl('/sliderurl');
@@ -30,7 +30,9 @@ app.constant('Social', {
     dropbox: 'https://www.dropbox.com'
 });
 
-app.run(['$rootScope', function($rootScope) {
+app.run(['$rootScope', 'editableOptions', function($rootScope, editableOptions) {
+    editableOptions.theme = 'bs2'; // bootstrap3 theme. Can be also 'bs2', 'default'
+
     $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState, fromParams) {
         console.log("$stateChangeStart " + fromState.name + JSON.stringify(fromParams) + " -> " + toState.name + JSON.stringify(toParams));
     });

@@ -1,0 +1,26 @@
+<div flex layout="row" style="height: 100%; padding: 5px; margin-top: 10px;">
+    <div id="left_editor" flex="50">
+        <div flex="initial" style="padding-left: 2px; padding-right: 2px;">
+            <md-input-container class="md-block" style="background-color: #effbed; height: 100%; margin: unset; padding: unset; border-top: 1px solid #a4a4a4">
+                <label>Yorum Yaz</label>
+                <textarea title="write comment" ng-model="attr.request.data" style="height: 0;" rows="5" md-select-on-focus ></textarea>
+            </md-input-container>
+        </div>
+        <div flex="initial" style="margin-top: 20px;">
+            <md-input-container>
+                <label>Elementi Seç</label>
+                <md-select ng-model="userState">
+                    <md-option ng-repeat="element in element_types" ng-value="element">
+                        {{element}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <div flex="initial" style="margin-top: 10px;">
+                selected: {{userState}}
+            </div>
+        </div>
+    </div>
+    <div flex="50">
+
+    </div>
+</div>
