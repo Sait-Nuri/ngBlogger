@@ -43,16 +43,9 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,   // remove all unnecessary nesting
-                        cwd: 'bower_components/angular-xeditable/dist/js',
-                        src: ['xeditable.min.js'],
+                        cwd: 'app/src/assets/js',
+                        src: ['angular-sortable-view.min.js'],
                         dest: 'app/dest/assets/js'
-                    },
-                    {
-                        expand: true,
-                        flatten: true,   // remove all unnecessary nesting
-                        cwd: 'bower_components/angular-xeditable/dist/css',
-                        src: ['xeditable.min.css'],
-                        dest: 'app/dest/assets/css'
                     },
                     {   // copy css files from bower to asset folder
                         expand: true,
