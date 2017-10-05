@@ -1,56 +1,64 @@
 <div flex layout="row" style="height: 100%; padding: 5px; margin-top: 10px;">
-    <div id="left_editor" flex="40">
-        <div flex="initial" style="padding-left: 2px; padding-right: 2px;">
-            <md-input-container class="md-block" style="background-color: #effbed; height: 100%; margin: unset; padding: unset; border-top: 1px solid #a4a4a4">
-                <label>Yorum Yaz</label>
-                <textarea title="write comment" ng-model="input.body" style="height: 0;" rows="5" md-select-on-focus ></textarea>
-            </md-input-container>
-        </div>
-        <div flex="initial" style="margin-top: 20px;">
-            <md-input-container>
-                <label>Elementi Seç</label>
-                <md-select ng-model="input.name" >
-                        <md-option ng-repeat="element in element_types" ng-value="element.name">
-                        {{element.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <div flex="initial" style="margin-top: 10px;">
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="input.attr1" placeholder="Attribute 1">
-                </md-input-container>
-            </div>
-            <div flex="initial" style="margin-top: 10px;">
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="input.attr2" placeholder="Attribute 2">
-                </md-input-container>
-            </div>
-            <div flex="initial" style="margin-top: 10px;">
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="input.attr3" placeholder="Attribute 3">
-                </md-input-container>
-            </div>
-            <div flex="initial" style="margin-top: 10px;">
-                <md-button class="md-raised md-primary" ng-click="action('ADD')" style="margin: 0; padding: 0;">{{state}}</md-button>
-            </div>
+    <md-tabs flex md-dynamic-height md-border-bottom >
+        <md-tab flex label="Yeni Sayfa Oluştur" >
+            <md-content flex layout="row" style="background-color: #bcbcbc;">
+                <div id="left_editor" flex="40">
+                    <div flex="initial" style="padding-left: 2px; padding-right: 2px;">
+                        <md-input-container class="md-block" style="background-color: #d3d3d3; height: 100%; margin: unset; padding: unset; border-top: 1px solid #a4a4a4">
+                            <label>Yorum Yaz</label>
+                            <textarea title="write comment" ng-model="input.body" style="height: 0;" rows="5" md-select-on-focus ></textarea>
+                        </md-input-container>
+                    </div>
+                    <div flex="initial" style="margin-top: 20px;">
+                        <md-input-container>
+                            <label>Elementi Seç</label>
+                            <md-select ng-model="input.name" >
+                                <md-option ng-repeat="element in element_types" ng-value="element.name" ng-selected="$first">
+                                    {{element.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <div flex="initial" style="margin-top: 10px;">
+                            <md-input-container md-no-float class="md-block">
+                                <input ng-model="input.attr1" placeholder="Attribute 1">
+                            </md-input-container>
+                        </div>
+                        <div flex="initial" style="margin-top: 10px;">
+                            <md-input-container md-no-float class="md-block">
+                                <input ng-model="input.attr2" placeholder="Attribute 2">
+                            </md-input-container>
+                        </div>
+                        <div flex="initial" style="margin-top: 10px;">
+                            <md-input-container md-no-float class="md-block">
+                                <input ng-model="input.attr3" placeholder="Attribute 3">
+                            </md-input-container>
+                        </div>
+                        <div flex="initial" style="margin-top: 10px;">
+                            <md-button class="md-raised md-primary" ng-click="action('ADD')" style="margin: 0; padding: 0;">{{state}}</md-button>
+                        </div>
 
-        </div>
-    </div>
-    <div flex="60" layout="row">
-        <div flex="20"></div>
-        <div flex="80" style="background-color: #cb2927;">
-            <div flex="initial" style="margin-top: 10px;" sv-root sv-part="elements">
-                <div ng-repeat="item in elements" sv-element>
-                    <div class="padded" md-whiteframe="2" ng-click="edit($index)" layout layout-align="center center" style="padding: 5px;">
-                        <div>{{item.name + ":" + item.id}}</div>
                     </div>
                 </div>
-            </div>
-            <div flex="initial" style="margin-top: 10px;">
-                <div ng-repeat="item in elements">
-                    {{item}}
+                <div id="right_editor" flex="60" layout="row">
+                    <div flex="20"></div>
+                    <div flex="80" layout="column" style="background-color: rgba(82,212,100,0.59);">
+                        <div flex="initial" style="margin-top: 5px; padding: 5px;" sv-root sv-part="elements">
+                            <div flex ng-repeat="item in elements" sv-element>
+                                <div flex class="padded list_item" md-whiteframe="2" ng-click="edit($index)" layout layout-align="none center" style="padding: 5px; border: dashed 1px; margin-top: 3px;">
+                                    <div>{{item.name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div flex="initial" layout="row" layout-align="end center" style="padding: 5px;">
+                            <md-button class="md-raised md-primary" ng-click="send()" style="margin: 0; padding: 0;">Gönder</md-button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </md-content>
+        </md-tab>
+        <md-tab flex label="Sayfayı Düzenle">
+
+        </md-tab>
+    </md-tabs>
+
 </div>

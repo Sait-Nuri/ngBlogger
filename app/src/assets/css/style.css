@@ -153,3 +153,7 @@ md-input-container{
     padding: 0;
     width: 100%;
 }
+
+.list_item{
+    cursor: move;
+}
