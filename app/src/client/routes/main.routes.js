@@ -513,8 +513,19 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
         main_route: {
             name: 'admin',
             url: '/admin',
-            templateUrl: 'partials/route.admin_main.html',
-            controller: 'AdminController'
+            template: '<ui-view/>'
+        },
+        new_page: {
+            name: 'admin.newpage',
+            url: '/newpage',
+            templateUrl: 'partials/route.admin_newpage.html',
+            controller: 'AdminNewPageController'
+        },
+        edit_page: {
+            name: 'admin.editpage',
+            url: '/editpage',
+            templateUrl: 'partials/route.admin_editpage.html',
+            controller: 'AdminEditPageController'
         }
     };
 
@@ -555,5 +566,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
 
     //Admin sayfası
     $stateProvider.state(admin_panel.main_route);
+    $stateProvider.state(admin_panel.new_page);
+    $stateProvider.state(admin_panel.edit_page);
 
 }]);
