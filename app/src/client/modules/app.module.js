@@ -16,6 +16,7 @@ app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(Slide
     PluginProvider.setRequestUrl('/plugin/guvoner', 'GUVONER');
     PluginProvider.setRequestUrl('/plugin/sacma', 'SACMA');
     PluginProvider.setRequestUrl('/plugin/geoinfo', 'GEOINFO');
+    PluginProvider.setRequestUrl('/plugin/menulist', 'MENU_LIST');
 
 }]);
 

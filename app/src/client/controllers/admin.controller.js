@@ -1,4 +1,4 @@
-app.controller('AdminController', ['$scope' ,function ($scope) {
+app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($scope, Plugin, Request) {
     $scope.admin = {
         editable: false,
         state: 'EKLE',
@@ -30,11 +30,14 @@ app.controller('AdminController', ['$scope' ,function ($scope) {
 
         ],
         getSubjectList: function () {
-            //http request
+            //Plugin.getContent('MENU_LIST');
         },
         getSubject: function (index) {
-            //http request
             $scope.admin.selectedSubject = index;
+            var subject = $scope.admin.subjects[index];
+            var request = {method: 'GET', url: subject.url};
+            //var pagelist = Request.request(request);
+
             $scope.admin.pagelist = $scope.admin.subjects[index].list;
         },
         action: function () {
@@ -70,6 +73,10 @@ app.controller('AdminController', ['$scope' ,function ($scope) {
         },
         editPage: function (index) {
             //http
+            var page = $scope.admin.pagelist[index];
+            var request = {method: 'UPDATE', url: page.url};
+            //$scope.admin.elements = Request.request(request);
+
             $scope.admin.elements = [
                 {name: 'başlık', id: '4', attr1: '123', attr2: '342', attr3: '234234', body: '123123'},
                 {name: 'paragraf', id: '1', attr1: '', attr2: '', attr3: '', body: ''}
@@ -94,6 +101,24 @@ app.controller('AdminController', ['$scope' ,function ($scope) {
             //http
             $scope.admin.resetInput();
             $scope.admin.creatable = true;
+        },
+        update: function () {
+            var page_index = $scope.admin.selectedSubject;
+            var page = $scope.admin.subjects[page_index];
+            var request = {
+                method: 'UPDATE',
+                url: page.url,
+                data: $scope.admin.elements
+            };
+            //Request.request(request);
+            //console.log("updated");
+        },
+        create: function () {
+            var page_index = $scope.admin.selectedSubject;
+            var subject = $scope.admin.subjects[page_index];
+            var request = {method: 'PUT', url: subject.url};
+            //Request.request(request);
+            //console.log("created");
         }
     };
 }]);

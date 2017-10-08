@@ -91,6 +91,14 @@ app.provider('Plugin', function () {
                 method: 'GET',
                 url: '½'
             }
+        },
+
+        {
+            type: 'MENU_LIST',
+            request: {
+                method: 'GET',
+                url: ''
+            }
         }
     ];
 
