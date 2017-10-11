@@ -126,6 +126,9 @@ module.exports = function(grunt) {
                     },
                     {   // minify concated routes
                         'app/dest/client/routes.min.js': ['app/dest/temp/routes.js']
+                    },
+                    {
+                        'app/dest/server/db.js': ['app/src/server/db.js']
                     }
                 ]
             }

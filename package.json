@@ -33,6 +33,7 @@
     "async": "^2.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "pg": "^7.3.0",
     "random-number": "0.0.7",
     "sequelize": "^4.4.3"
   }
