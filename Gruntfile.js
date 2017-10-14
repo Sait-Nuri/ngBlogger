@@ -128,7 +128,11 @@ module.exports = function(grunt) {
                         'app/dest/client/routes.min.js': ['app/dest/temp/routes.js']
                     },
                     {
-                        'app/dest/server/db.js': ['app/src/server/db.js']
+                        expand: true,
+                        cwd: 'app/src/server/',
+                        src: ['*.js'],
+                        dest: 'app/dest/server/',
+                        ext: '.js'
                     }
                 ]
             }

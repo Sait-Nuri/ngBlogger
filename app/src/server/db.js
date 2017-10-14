@@ -33,12 +33,13 @@ function Database() {
             ],
             function (err, result) {
                 if(err){
+                    console.log(err);
                     throw (err);
                 }else{
+                    console.log("setup process done");
                     parent_cb(null);
                 }
             });
-
         //Buraya log atma
     };
 
@@ -128,7 +129,6 @@ function Database() {
         this.models.Article = this.sequelize.define('article', {
             id: {
                 type: Sequelize.INTEGER,
-                autoIncrement: true,
                 primaryKey: true
             },
             title:{
@@ -146,7 +146,6 @@ function Database() {
         this.models.News = this.sequelize.define('news', {
             id: {
                 type: Sequelize.INTEGER,
-                autoIncrement: true,
                 primaryKey: true
             },
             title:{
@@ -164,7 +163,6 @@ function Database() {
         this.models.Toolbag = this.sequelize.define('toolbag', {
             id: {
                 type: Sequelize.INTEGER,
-                autoIncrement: true,
                 primaryKey: true
             },
             title:{
@@ -181,7 +179,6 @@ function Database() {
         this.models.Battlefield = this.sequelize.define('battlefield', {
             id: {
                 type: Sequelize.INTEGER,
-                autoIncrement: true,
                 primaryKey: true
             },
             title:{
@@ -198,7 +195,6 @@ function Database() {
         this.models.Itlaw = this.sequelize.define('itlaw', {
             id: {
                 type: Sequelize.INTEGER,
-                autoIncrement: true,
                 primaryKey: true
             },
             title:{
@@ -217,15 +213,15 @@ function Database() {
 
     this.createRelations = function (parent_callback) {
 
-        this.models.Element_type.belongsTo(this.models.Element, {foreignKey: 'type_id'}); // Element.getTag();
+        this.models.Element_type.hasOne(this.models.Element, {foreignKey: 'type_id'}); // Element.getTag();
         this.models.Page.hasMany(this.models.Element, {as: 'Elements', foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true});
         this.models.Page.belongsTo(this.models.Pagetype, {foreignKey: 'type_id'});
 
-        this.models.Page.hasMany(this.models.Article, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); // Article.getElements();
-        this.models.Page.hasMany(this.models.News, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); // News.getElements();
-        this.models.Page.hasMany(this.models.Toolbag, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); // Toolbag.getElements();
-        this.models.Page.hasMany(this.models.Battlefield, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); // Battlefield.getElements();
-        this.models.Page.hasMany(this.models.Itlaw, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); // Itlaw.getElements();
+        this.models.Article.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
+        this.models.News.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Toolbag.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Battlefield.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Itlaw.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
 
         console.log('createRelations done');
         parent_callback(null);
@@ -240,30 +236,7 @@ function Database() {
                         .then(function () {
                             callback(null, 'Page_Type model saved');
                         }).catch(function (err) {
-                        callback(err);
-                    });
-                },
-                function (callback) {
-                    models.Page.sync()
-                        .then(function () {
-                            callback(null, 'Page model saved');
-                        }).catch(function (err) {
-                        callback(err);
-                    });
-                },
-                function (callback) {
-                    models.Element.sync()
-                        .then(function () {
-                            callback(null, 'Element model saved');
-                        }).catch(function (err) {
-                        callback(err);
-                    });
-                },
-                function (callback) {
-                    models.Element_type.sync()
-                        .then(function () {
-                            callback(null, 'Element_Type model saved');
-                        }).catch(function (err) {
+                            console.log(err);
                             callback(err);
                         });
                 },
@@ -272,6 +245,7 @@ function Database() {
                         .then(function () {
                             callback(null, 'Article model saved');
                         }).catch(function (err) {
+                            console.log(err);
                             callback(err);
                         });
                 },
@@ -280,6 +254,7 @@ function Database() {
                         .then(function () {
                             callback(null, 'News model saved');
                         }).catch(function (err) {
+                            console.log(err);
                             callback(err);
                         });
                 },
@@ -288,6 +263,7 @@ function Database() {
                         .then(function () {
                             callback(null, 'Toolbag model saved');
                         }).catch(function (err) {
+                            console.log(err);
                             callback(err);
                         });
                 },
@@ -304,15 +280,44 @@ function Database() {
                         .then(function () {
                             callback(null, 'Itlaw model saved');
                         }).catch(function (err) {
+                            console.log(err);
+                            callback(err);
+                        });
+                },
+                function (callback) {
+                    models.Page.sync()
+                        .then(function () {
+                            callback(null, 'Page model saved');
+                        }).catch(function (err) {
+                            console.log(err);
+                            callback(err);
+                        });
+                },
+                function (callback) {
+                    models.Element_type.sync()
+                        .then(function () {
+                            callback(null, 'Element_Type model saved');
+                        }).catch(function (err) {
+                            console.log(err);
+                            callback(err);
+                        });
+                },
+                function (callback) {
+                    models.Element.sync()
+                        .then(function () {
+                            callback(null, 'Element model saved');
+                        }).catch(function (err) {
+                            console.log(err);
                             callback(err);
                         });
                 }],
             function (err, result) {
                 if(err){
-                    console.error(err);
+                    console.log(err);
                     parent_callback(err);
                 }else{
-                    parent_callback(null, 'saveModels done');
+                    console.log("saveModels done");
+                    parent_callback(null);
                 }
             });
     };

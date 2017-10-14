@@ -25,11 +25,15 @@ async.series([
             database.setup(cb); //Create models
         },
         function (cb) {
+            routes = require('./server/routes.js')(app, __dirname, database, express);
+            routes.setup();
             cb(null);
         }],
     function (err, result) {
         if(err){
             throw (err);
+        }else{
+            console.log("index is run");
         }
     });
 
