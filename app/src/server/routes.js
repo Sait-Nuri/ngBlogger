@@ -91,10 +91,8 @@ module.exports = function (app, dir_path, db, express) {
             .put(elementRest.updateOne)
             .delete(elementRest.deleteOne);
 
-        /*
         router.route('/')
             .get(articleRest.readBulk);
-        */
 
         router.route('/:page_id')
             .get(articleRest.readOne)

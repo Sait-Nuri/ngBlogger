@@ -2,6 +2,27 @@ const async = require('async');
 
 function ModelCRUD(bundle) {
 
+    // GET /model
+    this.readBulk = function (req, res) {
+
+        bundle.Model.findAll()
+            .then(function (models){
+                if(models.length === 0){
+                    console.log("instance is null");
+                    res.statusCode = 400;
+                    res.json({});
+                }else{
+                    console.log("all models select done");
+                    res.statusCode = 200;
+                    res.json(models);
+                }
+            }).catch(function (err){
+                console.log(err);
+                res.statusCode = 400;
+                res.json({});
+            });
+    };
+
     //  POST /model/:id
     this.createOne = function (req, res) {
         var model = {};
@@ -175,7 +196,7 @@ function ModelCRUD(bundle) {
         });
     };
 
-    //DELETE /model/:id
+    // DELETE /model/:id
     this.deleteOne = function (req, res) {
         var id = req.params.id;
         var where = {where: {'id': id}};
