@@ -83,6 +83,9 @@ function Database() {
             },
             attr3: {
                 type: Sequelize.TEXT
+            },
+            order: {
+                type: Sequelize.INTEGER
             }
         },{
             tableName: 'element_list'
@@ -213,7 +216,7 @@ function Database() {
 
     this.createRelations = function (parent_callback) {
 
-        this.models.Element_type.hasOne(this.models.Element, {foreignKey: 'type_id'}); // Element.getTag();
+        this.models.Element_type.hasOne(this.models.Element, {foreignKey: 'type_id'});
         this.models.Page.hasMany(this.models.Element, {as: 'Elements', foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true});
         this.models.Page.belongsTo(this.models.Pagetype, {foreignKey: 'type_id'});
 

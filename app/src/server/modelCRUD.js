@@ -43,7 +43,7 @@ function ModelCRUD(bundle) {
                         }
                     })
                     .catch(function (err) {
-                        console.log(err);
+                        cb(err);
                     });
             },
             function create_page(cb) {
@@ -57,7 +57,7 @@ function ModelCRUD(bundle) {
                             console.log("new page: " +new_page_data);
                         }
                     }).catch(function (err){
-                        console.log(err);
+                        cb(err);
                     });
             }
         ], function (err) {
@@ -108,6 +108,7 @@ function ModelCRUD(bundle) {
                         }
                     }).catch(function (err){
                         console.log(err);
+                        cb(err);
                     });
             }
         ],
@@ -142,7 +143,6 @@ function ModelCRUD(bundle) {
                             cb(null, model_data);
                         }
                     }).catch(function (err){
-                        console.log(err);
                         cb(err);
                     });
             },
@@ -158,7 +158,6 @@ function ModelCRUD(bundle) {
                         }
                     })
                     .catch(function (err) {
-                        console.log(err);
                         cb(err);
                     });
             }
@@ -182,8 +181,8 @@ function ModelCRUD(bundle) {
         var where = {where: {'id': id}};
 
         bundle.Model.destroy(where)
-            .then(function (numof_effeted) {
-                if(numof_effeted === 0){
+            .then(function (numof_deleted) {
+                if(numof_deleted === 0){
                     console.log("model not destroyed");
                 }else{
                     console.log("model destroyed successfully");

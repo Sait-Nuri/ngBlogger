@@ -15,10 +15,6 @@ app.use(bodyParser.json());
 var database;
 var routes;
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-
 async.series([
         function (cb) {
             database = require('./server/db.js');

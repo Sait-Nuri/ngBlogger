@@ -1,11 +1,11 @@
 var ModelRest = require('./modelCRUD');
+var ElementRest = require('./ElementCRUD');
 
 module.exports = function (app, dir_path, db, express) {
     var module = {};
 
     module.setup = function () {
 
-        var pageRouter = express.Router();
         var articleRouter = express.Router();
         //var newsRouter = express.Router();
         //var toolbagRouter = express.Router();
@@ -62,22 +62,25 @@ module.exports = function (app, dir_path, db, express) {
     module.setupArticleRoutes = function (app, router, elementRouter) {
 
         //console.log(db.models);
-        var bundle = {
+        var bundleModel = {
             Model: db.models.Article,
             Page: db.models.Page,
             Pagetype: db.models.Pagetype,
             page_type: 'Article',
             limit: '20'
         };
+        var articleRest = new ModelRest(bundleModel);
 
-        var articleRest = new ModelRest(bundle);
+        var bundleElement = {
+            Model: db.models.Article,
+            Element_type: db.models.Element_type,
+            Element: db.models.Element
+        };
 
-        var bundleElement = {'Model': db.models.Element };
-        //var elementRest = new ElementRest(bundleElement);
+        var elementRest = new ElementRest(bundleElement);
 
-        router.use('/:id/element', elementRouter);
+        router.use('/:page_id/element', elementRouter);
 
-        /*
         elementRouter.route('/')
             .get(elementRest.readBulk)
             .post(elementRest.createBulk);
@@ -88,11 +91,12 @@ module.exports = function (app, dir_path, db, express) {
             .put(elementRest.updateOne)
             .delete(elementRest.deleteOne);
 
+        /*
         router.route('/')
             .get(articleRest.readBulk);
-         */
+        */
 
-        router.route('/:id')
+        router.route('/:page_id')
             .get(articleRest.readOne)
             .post(articleRest.createOne)
             .put(articleRest.updateOne)
