@@ -324,7 +324,6 @@ function Database() {
                 }
             });
     };
-
 }
 
 module.exports = new Database();

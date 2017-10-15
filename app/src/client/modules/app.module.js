@@ -3,20 +3,20 @@ var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'angular-carousel'
 app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(SliderProvider, SearchProvider, PluginProvider) {
     SliderProvider.setSliderUrl('/sliderurl');
     SearchProvider.setSearchUrl('/search');
-    PluginProvider.setRequestUrl('/plugin/home', 'HOME');
-    PluginProvider.setRequestUrl('/plugin/news', 'NEWS');
-    PluginProvider.setRequestUrl('/plugin/article', 'ARTICLE');
-    PluginProvider.setRequestUrl('/plugin/toolbag', 'TOOLBAG');
-    PluginProvider.setRequestUrl('/plugin/battfield', 'BATTLEFIELD');
-    PluginProvider.setRequestUrl('/plugin/itlaws', 'ITLAWS');
-    PluginProvider.setRequestUrl('/plugin/security/appsec', 'APPSEC');
-    PluginProvider.setRequestUrl('/plugin/security/netsec', 'NETSEC');
-    PluginProvider.setRequestUrl('/plugin/security/endsec', 'ENDSEC');
-    PluginProvider.setRequestUrl('/plugin/medikon', 'MEDIKON');
-    PluginProvider.setRequestUrl('/plugin/guvoner', 'GUVONER');
-    PluginProvider.setRequestUrl('/plugin/sacma', 'SACMA');
-    PluginProvider.setRequestUrl('/plugin/geoinfo', 'GEOINFO');
-    PluginProvider.setRequestUrl('/plugin/menulist', 'MENU_LIST');
+    PluginProvider.setRequestUrl('/home', 'HOME');
+    PluginProvider.setRequestUrl('/news', 'NEWS');
+    PluginProvider.setRequestUrl('/article', 'ARTICLE');
+    PluginProvider.setRequestUrl('/toolbag', 'TOOLBAG');
+    PluginProvider.setRequestUrl('/battfield', 'BATTLEFIELD');
+    PluginProvider.setRequestUrl('/itlaws', 'ITLAWS');
+    PluginProvider.setRequestUrl('/appsec', 'APPSEC');
+    PluginProvider.setRequestUrl('/netsec', 'NETSEC');
+    PluginProvider.setRequestUrl('/endsec', 'ENDSEC');
+    PluginProvider.setRequestUrl('/medikon', 'MEDIKON');
+    PluginProvider.setRequestUrl('/guvoner', 'GUVONER');
+    PluginProvider.setRequestUrl('/sacma', 'SACMA');
+    PluginProvider.setRequestUrl('/geoinfo', 'GEOINFO');
+    PluginProvider.setRequestUrl('/menulist', 'MENU_LIST');
 
 }]);
 

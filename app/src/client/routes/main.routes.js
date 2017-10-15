@@ -9,7 +9,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/home',
                 templateUrl: 'partials/route.mainpage.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('HOME');
+                    $scope.content = Plugin.getContent('HOME')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+                    /*
                     $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
@@ -21,7 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             url: '/article/24123'
                         }
                     };
-
+                    */
                     $scope.page_title = 'Anasayfa';
                 }]
             },
@@ -33,8 +41,16 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/article',
                 templateUrl: 'partials/route.article.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('ARTICLE');
-                    //sunucudan aşağıdaki bilgiler gelecek
+                    Plugin.getContent('ARTICLE')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+
+                    /*
                     $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
@@ -46,7 +62,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             url: '/article/24123'
                         }
                     };
-
+                    */
                     $scope.page_title = 'Yazılar';
                 }]
             },
@@ -83,8 +99,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/news',
                 templateUrl: 'partials/route.news.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('NEWS');
-
+                    $scope.content = Plugin.getContent('NEWS')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+/*
                     $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
@@ -96,7 +119,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             url: '/news/24123'
                         }
                     };
-
+*/
                     $scope.page_title = 'Haber';
                 }]
             },
@@ -133,8 +156,15 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/toolbag',
                 templateUrl: 'partials/route.toolbag.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('TOOLBAG');
-
+                    $scope.content = Plugin.getContent('TOOLBAG')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+                    /*
                     $scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
@@ -142,7 +172,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                         id: '24123',
                         page_route: 'toolbag.page'
                     };
-
+                    */
                     $scope.page_title = 'Alet Çantası';
                 }]
             },
@@ -177,15 +207,22 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/battlefield',
                 templateUrl: 'partials/route.battlefield.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('BATTLEFIELD');
+                    $scope.content = Plugin.getContent('BATTLEFIELD')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
 
-                    $scope.content = {
+                    /*$scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
                         body: 'İçerik içerik içerik',
                         id: '24123',
                         page_route: 'battlefield.page'
-                    };
+                    };*/
 
                     $scope.page_title = 'Er Meydanı';
                 }]
@@ -221,15 +258,22 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/itlaws',
                 templateUrl: 'partials/route.itlaws.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('ITLAWS');
+                    $scope.content = Plugin.getContent('ITLAWS')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
 
-                    $scope.content = {
+                    /*$scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
                         body: 'İçerik içerik içerik',
                         id: '24123',
                         page_route: 'itlaws.page'
-                    };
+                    };*/
 
                     $scope.page_title = 'Bilişim Hukuku';
                 }]
@@ -268,9 +312,17 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/appsec',
                 templateUrl: 'partials/route.appsec.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('APPSEC');
+                    $scope.content = Plugin.getContent('APPSEC')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+
                     //sunucudan aşağıdaki bilgiler gelecek
-                    $scope.content = {
+                    /*$scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
                         body: 'İçerik içerik içerik',
@@ -280,7 +332,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             method: 'GET',
                             url: '/appsec/24123'
                         }
-                    };
+                    };*/
 
                     $scope.page_title = 'Application Security';
                 }]
@@ -317,9 +369,17 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/netsec',
                 templateUrl: 'partials/route.netsec.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('APPSEC');
+                    $scope.content = Plugin.getContent('APPSEC')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+
                     //sunucudan aşağıdaki bilgiler gelecek
-                    $scope.content = {
+                    /*$scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
                         body: 'İçerik içerik içerik',
@@ -329,7 +389,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             method: 'GET',
                             url: '/netsec/24123'
                         }
-                    };
+                    };*/
 
                     $scope.page_title = 'Network Security';
                 }]
@@ -366,9 +426,17 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 url: '/endsec',
                 templateUrl: 'partials/route.endsec.html',
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
-                    //$scope.content = Plugin.getContent('APPSEC');
+                    $scope.content = Plugin.getContent('APPSEC')
+                        .then(function(response){
+                            $scope.content = response.data;
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                            $scope.content = [];
+                        });
+
                     //sunucudan aşağıdaki bilgiler gelecek
-                    $scope.content = {
+                    /*$scope.content = {
                         title: 'Başlık',
                         image: 'Resim',
                         body: 'İçerik içerik içerik',
@@ -378,7 +446,7 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                             method: 'GET',
                             url: '/endsec/24123'
                         }
-                    };
+                    };*/
 
                     $scope.page_title = 'Endpoint Security';
                 }]
@@ -442,18 +510,26 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
             url: '/medikon/:id',
             params:{
                 id: null,
-                request: null
+                request: null,
+                title: null
             },
             templateUrl: 'partials/route.page.html',
             controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
-                //Request.request($stateParams.request);
+
+                Request.request($stateParams.request)
+                    .then(function(response){
+                        $scope.content.elements = response.data;
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
                 $scope.content = {
-                    title: 'Başlık',
+                    title: $stateParams.title,
+                    elements: [],
                     image: 'Resim',
                     body: 'İçerik içerik içerik'
                 };
-
-                $scope.page_title = 'Merak edilen konular';
             }]
         }
     };
@@ -465,18 +541,25 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
             url: '/guvoner/:id',
             params:{
                 id: null,
-                request: null
+                request: null,
+                title: null
             },
             templateUrl: 'partials/route.page.html',
             controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
-                //Request.request($stateParams.request);
+                Request.request($stateParams.request)
+                    .then(function(response){
+                        $scope.content.elements = response.data;
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
                 $scope.content = {
-                    title: 'Başlık',
+                    title: $stateParams.title,
+                    elements: [],
                     image: 'Resim',
                     body: 'İçerik içerik içerik'
                 };
-
-                $scope.page_title = 'Merak edilen konular';
             }]
         }
     };
@@ -488,23 +571,26 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
             url: '/sacma/:id',
             params:{
                 id: null,
-                request: null
+                request: null,
+                title: null
             },
             templateUrl: 'partials/route.page.html',
             controller: ['$scope', 'Request', '$stateParams', function ($scope, Request, $stateParams) {
-                //Request.request($stateParams.request);
-                $scope.content = {
-                    title: 'Başlık',
-                    image: 'Resim',
-                    body: 'İçerik içerik içerik',
-                    request: {
-                        method: 'POST',
-                        url: '/message/' + $stateParams.id,
-                        data: ''
-                    }
-                };
 
-                $scope.page_title = 'Merak edilen konular';
+                Request.request($stateParams.request)
+                    .then(function(response){
+                        $scope.content.elements = response.data;
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
+                $scope.content = {
+                    title: $stateParams.title,
+                    elements: [],
+                    image: 'Resim',
+                    body: 'İçerik içerik içerik'
+                };
             }]
         }
     };

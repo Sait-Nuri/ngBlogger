@@ -121,17 +121,17 @@
                                     </plugin>
                                     <plugin type="plugins.left3">
                                         <div ng-repeat="item in plugins.left3.items" style="height: 100%;" >
-                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
+                                            <menu-item content="item" ui-sref="{{plugins.left3.route}}({id: item.params.id, request: item.params.request, title: plugins.left3.title})"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left4">
                                         <div ng-repeat="item in plugins.left4.items" style="height: 100%;" >
-                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
+                                            <menu-item content="item" ui-sref="{{plugins.left4.route}}({id: item.params.id, request: item.params.request, title: plugins.left4.title})"></menu-item>
                                         </div>
                                     </plugin>
                                     <plugin type="plugins.left5">
                                         <div ng-repeat="item in plugins.left5.items" style="height: 100%;" >
-                                            <menu-item content="item" ui-sref="{{item.route}}({id: item.params.id, request: item.params.request})"></menu-item>
+                                            <menu-item content="item" ui-sref="{{plugins.left3.route}}({id: item.params.id, request: item.params.request, title: plugins.left5.title})"></menu-item>
                                         </div>
                                     </plugin>
                                 </div>

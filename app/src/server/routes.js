@@ -69,14 +69,13 @@ module.exports = function (app, dir_path, db, express) {
             page_type: 'Article',
             limit: '20'
         };
-        var articleRest = new ModelRest(bundleModel);
-
         var bundleElement = {
             Model: db.models.Article,
             Element_type: db.models.Element_type,
             Element: db.models.Element
         };
 
+        var articleRest = new ModelRest(bundleModel);
         var elementRest = new ElementRest(bundleElement);
 
         router.use('/:page_id/element', elementRouter);

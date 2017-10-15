@@ -125,13 +125,7 @@ app.provider('Plugin', function () {
                     }
                 });
 
-                $q.when(true).then(function() {
-                    return Request.request(request); // Will be resolved
-                }).then(function(response) {    // Success callback
-                    return response.data;
-                }, function(err) {  // Error callback
-                    return null;
-                });
+                return Request.request(request);
             }
         }
     }];

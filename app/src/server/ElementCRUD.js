@@ -53,7 +53,7 @@ function ElementCRUD(bundle) {
             if (err) {
                 console.log(err);
                 res.statusCode = 400;
-                res.json({});
+                res.json([]);
             } else {
                 console.log("element bulk select done");
                 res.statusCode = 200;

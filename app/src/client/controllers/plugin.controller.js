@@ -5,16 +5,82 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
 
     //Burada title, id, request dizisi gelecek
     //Bu dizi left3.items 'e atanacak
-    var medikon = Plugin.getContent('MEDIKON');
+    /*Plugin.getContent('MEDIKON')
+        .then(function(response){
+            var pages = response.data;
+
+            for (var model in pages) {
+                var page = {};
+                page.title = model.title;
+                page.collapse = false;
+                page.params = {
+                    id: model.id,
+                    request: {
+                        method: 'GET',
+                        url: '/medikon/' + model.id + "/element"
+                    }
+                };
+
+                $scope.plugins.left3.items.push(page);
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+            $scope.plugins.left3.items = [];
+        });*/
 
     //Bu dizi left4.items 'e atanacak
-    var guvoner = Plugin.getContent('GUVONER');
+    /*Plugin.getContent('GUVONER')
+        .then(function(response){
+            var pages = response.data;
+
+            for (var model in pages) {
+                var page = {};
+                page.title = model.title;
+                page.collapse = false;
+                page.params = {
+                    id: model.id,
+                    request: {
+                        method: 'GET',
+                        url: '/guvoner/' + model.id + '/element'
+                    }
+                };
+
+                $scope.plugins.left4.items.push(page);
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+            $scope.plugins.left4.items = [];
+        });*/
 
     // Bu dizi left5.items 'e atanacak
-    var sacma = Plugin.getContent('SACMA');
+    /*Plugin.getContent('SACMA')
+        .then(function(response){
+            var pages = response.data;
+
+            for (var model in pages) {
+                var page = {};
+                page.title = model.title;
+                page.collapse = false;
+                page.params = {
+                    id: model.id,
+                    request: {
+                        method: 'GET',
+                        url: '/sacma/' + model.id + '/element'
+                    }
+                };
+
+                $scope.plugins.left5.items.push(page);
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+            $scope.plugins.left5.items = [];
+        });*/
 
     // Ziyaretçinin ip lokasyon bilgilerini sorugla
-    var geoinfo = Plugin.getContent('GEOINFO');
+    //var geoinfo = Plugin.getContent('GEOINFO');
 
     // Plugins Menu configuration
     $scope.plugins = {
@@ -88,6 +154,7 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Merak Edilen Konular',
+            route: 'medikon',
             items: [
                 {
                     title: 'Hacker kime denir/denmez?',
@@ -98,7 +165,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                             url: '/medikon/41231'
                         }
                     },
-                    route: 'medikon',
                     collapse: false
                 },
                 {
@@ -110,7 +176,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                             url: '/medikon/34234'
                         }
                     },
-                    route: 'medikon',
                     collapse: false
                 },
                 {
@@ -122,7 +187,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                             url: '/medikon/432423'
                         }
                     },
-                    route: 'medikon',
                     collapse: false
                 },
                 {
@@ -134,7 +198,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                             url: '/medikon/34242312'
                         }
                     },
-                    route: 'medikon',
                     collapse: false
                 }
             ]
@@ -143,11 +206,11 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Güvenlik Önerileri',
+            route: 'guvoner',
             items: [
                 {
                     title: 'Antivirüs Önerileri',
                     collapse: false,
-                    route: 'guvoner',
                     params:{
                         id: '2342',
                         request: {
@@ -159,7 +222,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 {
                     title: 'güvenli alışveriş',
                     collapse: false,
-                    route: 'guvoner',
                     params:{
                         id: '222342334',
                         request: {
@@ -171,7 +233,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 {
                     title: 'güçlü şifre nasıl oluşturulur.',
                     collapse: false,
-                    route: 'guvoner',
                     params:{
                         id: '3434131',
                         request: {
@@ -186,11 +247,11 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
             'margin_top': '5px',
             'margin_bottom': '5px',
             'header': 'Saçma sapan sorular ve düşünceler',
+            route: 'sacma',
             items: [
                 {
                     title: 'Falan kişinin facesini patlatabilir misin?',
                     collapse: false,
-                    route: 'sacma',
                     params:{
                         id: '2342',
                         request: {
@@ -202,7 +263,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 {
                     title: 'Antivirüse ihtiyacım yok.',
                     collapse: false,
-                    route: 'sacma',
                     params:{
                         id: '1231231',
                         request: {
@@ -214,7 +274,6 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 {
                     title: 'Ben hekırım olm',
                     collapse: false,
-                    route: 'sacma',
                     params:{
                         id: '1234134',
                         request: {

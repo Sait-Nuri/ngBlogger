@@ -4,13 +4,14 @@ function ModelCRUD(bundle) {
 
     // GET /model
     this.readBulk = function (req, res) {
+        console.log("GET /article");
 
         bundle.Model.findAll()
             .then(function (models){
                 if(models.length === 0){
                     console.log("instance is null");
                     res.statusCode = 400;
-                    res.json({});
+                    res.json([]);
                 }else{
                     console.log("all models select done");
                     res.statusCode = 200;
@@ -19,11 +20,11 @@ function ModelCRUD(bundle) {
             }).catch(function (err){
                 console.log(err);
                 res.statusCode = 400;
-                res.json({});
+                res.json([]);
             });
     };
 
-    //  POST /model/:id
+    // POST /model/:id
     this.createOne = function (req, res) {
         var model = {};
         Object.assign(model, req.body.data);
