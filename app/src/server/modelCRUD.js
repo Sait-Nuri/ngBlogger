@@ -29,8 +29,10 @@ function ModelCRUD(bundle) {
         var model = {};
         Object.assign(model, req.body.data);
         //model = req.body.data;
-        model.id = req.params.id;
+        model.id = req.params.model_id;
+        Object.assign(model, req.body.data);
 
+        console.log(req.body);
         var page = {};
 
         async.waterfall([
@@ -51,6 +53,21 @@ function ModelCRUD(bundle) {
                         cb(err);
                     });
             },
+            function create_page(cb) {
+                bundle.Page.create(page)
+                    .then(function (page_instance){
+                        if(page_instance === null){
+                            //console.log("page_instance is null");
+                            cb("page_instance is null");
+                        }else{
+                            model.page_id = page_instance.page_id;
+                            console.log("new page: " + page_instance.get());
+                            cb(null);
+                        }
+                    }).catch(function (err){
+                        cb(err);
+                    });
+            },
             function create_model(cb) {
                 bundle.Model.create(model)
                     .then(function (model_instance) {
@@ -60,25 +77,10 @@ function ModelCRUD(bundle) {
                         }else{
                             var new_model_data = model_instance.get();
                             console.log("new model: "+new_model_data);
-                            page.model_id = new_model_data.id;
                             cb(null);
                         }
                     })
                     .catch(function (err) {
-                        cb(err);
-                    });
-            },
-            function create_page(cb) {
-                bundle.Page.create(page)
-                    .then(function (page_instance){
-                        if(page_instance === null){
-                            //console.log("page_instance is null");
-                            cb("page_instance is null");
-                        }else{
-                            var new_page_data = page_instance.get();
-                            console.log("new page: " +new_page_data);
-                        }
-                    }).catch(function (err){
                         cb(err);
                     });
             }
@@ -98,7 +100,8 @@ function ModelCRUD(bundle) {
 
     // GET /model/:id
     this.readOne = function (req, res) {
-        var query = { where: {id: req.params.id} };
+        var query = { where: {id: req.params.model_id} };
+        var data = {};
 
         async.waterfall([
             function findModel(cb) {
@@ -108,33 +111,33 @@ function ModelCRUD(bundle) {
                             cb("model_instance is null");
                         }else{
                             var model_data = model_instance.get();
-                            console.log(model_data);
-                            cb(null, model_data);
+                            Object.assign(data, model_data);
+                            console.log(data);
+                            cb(null);
                         }
                     }).catch(function (err){
-                        console.log(err);
                         cb(err);
                     });
             },
-            function findPage(model, cb) {
-                var query = { where: {model_id: model.id} };
+            function findPage(cb) {
+                var query = { where: {page_id: data.page_id} };
 
                 bundle.Page.findOne(query)
                     .then(function (page_instance){
-                        if(page_instance){
+                        if(page_instance === null){
                             cb("page_instance is null");
                         }else{
                             var page = page_instance.get();
-                            console.log(page);
-                            cb(null, model, page);
+                            Object.assign(data, page);
+                            console.log(data);
+                            cb(null);
                         }
                     }).catch(function (err){
-                        console.log(err);
                         cb(err);
                     });
             }
         ],
-        function (err, model, page) { // Burada ihtiyaca göre model, page ya da her ikisi döndürülebilir.
+        function (err) { // Burada ihtiyaca göre model, page ya da her ikisi döndürülebilir.
             if (err) {
                 console.log(err);
                 res.statusCode = 400;
@@ -142,14 +145,14 @@ function ModelCRUD(bundle) {
             } else {
                 console.log("find model is done");
                 res.statusCode = 200;
-                res.json(model);
+                res.json(data);
             }
         });
     };
     
     // PUT /model/:id
     this.updateOne = function (req, res) {
-        var query = {where: {id: req.params.id}};
+        var query = {where: {id: req.params.model_id}};
         var new_data = req.body.data;
 
         async.waterfall([
@@ -170,12 +173,11 @@ function ModelCRUD(bundle) {
             },
             function updateModel(new_model_data, cb) {
                 bundle.Model.update(new_model_data, query)
-                    .then(function (updated_instance) {
-                        if(updated_instance === null){
-                            //console.log("updated_instance is null");
-                            cb("updated_instance is null");
+                    .then(function (affected_row_num) {
+                        if(affected_row_num === 0){
+                            cb("update failed: affected row: " + affected_row_num);
                         }else{
-                            console.log("Model updated: " + updated_instance.get());
+                            console.log("Model updated: affected row: " + affected_row_num);
                             cb(null);
                         }
                     })
@@ -199,17 +201,31 @@ function ModelCRUD(bundle) {
 
     // DELETE /model/:id
     this.deleteOne = function (req, res) {
-        var id = req.params.id;
-        var where = {where: {'id': id}};
+        var query = {where: {'id': req.params.model_id}};
 
-        bundle.Model.destroy(where)
-            .then(function (numof_deleted) {
-                if(numof_deleted === 0){
-                    console.log("model not destroyed");
+        bundle.Model.findOne(query)
+            .then(function (model_instance) {
+                if(model_instance === null){
+                    console.log("model is not found");
                 }else{
-                    console.log("model destroyed successfully");
-                    res.statusCode = 200;
-                    res.json({});
+                    var delete_query = {where: {page_id: model_instance.page_id}};
+                    bundle.Page.destroy(delete_query).
+                        then(function (affected_row){
+                            if(affected_row === 0){
+                                console.log("model is not deleted");
+                                res.statusCode = 400;
+                                res.json({});
+                            }else{
+                                console.log("model deleted successfully");
+                                res.statusCode = 200;
+                                res.json({});
+                            }
+                        })
+                        .catch(function (err){
+                            console.log(err);
+                            res.statusCode = 400;
+                            res.json({});
+                        });
                 }
             })
             .catch(function (err) {

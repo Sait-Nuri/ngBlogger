@@ -84,8 +84,8 @@ function Database() {
             attr3: {
                 type: Sequelize.TEXT
             },
-            order: {
-                type: Sequelize.INTEGER
+            body: {
+                type: Sequelize.TEXT
             }
         },{
             tableName: 'element_list'
@@ -107,10 +107,14 @@ function Database() {
 
         // page type
         this.models.Page = this.sequelize.define('page_list', {
-            id: {
+            page_id: {
                 type: Sequelize.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
+            },
+            numread:{
+                type: Sequelize.INTEGER,
+                defaultValue: 0
             }
         });
 
@@ -136,10 +140,6 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
-            },
-            numread:{
-                type: Sequelize.INTEGER,
-                defaultValue: 0
             }
         },{
             tableName: 'article_list'
@@ -153,10 +153,6 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
-            },
-            numread:{
-                type: Sequelize.INTEGER,
-                defaultValue: 0
             }
         },{
             tableName: 'news_list'
@@ -170,9 +166,6 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
-            },
-            numread:{
-                type: Sequelize.INTEGER
             }
         },{
             tableName: 'toolbag_list'
@@ -186,9 +179,6 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
-            },
-            numread:{
-                type: Sequelize.INTEGER
             }
         },{
             tableName: 'battlefield_list'
@@ -202,9 +192,6 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
-            },
-            numread:{
-                type: Sequelize.INTEGER
             }
         },{
             tableName: 'itlaw_list'
@@ -220,11 +207,11 @@ function Database() {
         this.models.Page.hasMany(this.models.Element, {as: 'Elements', foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true});
         this.models.Page.belongsTo(this.models.Pagetype, {foreignKey: 'type_id'});
 
-        this.models.Article.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
-        this.models.News.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
-        this.models.Toolbag.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
-        this.models.Battlefield.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
-        this.models.Itlaw.hasOne(this.models.Page, {foreignKey: 'model_id', as: 'Model', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Page.hasOne(this.models.Article, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Page.hasOne(this.models.News, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Page.hasOne(this.models.Toolbag, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Page.hasOne(this.models.Battlefield, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); //
+        this.models.Page.hasOne(this.models.Itlaw, {foreignKey: 'page_id', onDelete: 'CASCADE', hooks: true}); //
 
         console.log('createRelations done');
         parent_callback(null);
@@ -242,6 +229,15 @@ function Database() {
                             console.log(err);
                             callback(err);
                         });
+                },
+                function (callback) {
+                    models.Page.sync()
+                        .then(function () {
+                            callback(null, 'Page model saved');
+                        }).catch(function (err) {
+                        console.log(err);
+                        callback(err);
+                    });
                 },
                 function (callback) {
                     models.Article.sync()
@@ -282,15 +278,6 @@ function Database() {
                     models.Itlaw.sync()
                         .then(function () {
                             callback(null, 'Itlaw model saved');
-                        }).catch(function (err) {
-                            console.log(err);
-                            callback(err);
-                        });
-                },
-                function (callback) {
-                    models.Page.sync()
-                        .then(function () {
-                            callback(null, 'Page model saved');
                         }).catch(function (err) {
                             console.log(err);
                             callback(err);

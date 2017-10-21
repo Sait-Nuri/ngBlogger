@@ -23,6 +23,9 @@ module.exports = function (app, dir_path, db, express) {
         //this.setupToolbagRouter(app, toolbagRouter, elementRouter);
         //this.setupBfRouter(app, battlefieldRouter, elementRouter);
         //this.setupItlawRouter(app, itlawRouter, elementRouter);
+
+        this.setupMenuList(app);
+        this.setupElementTypeRoute(app);
     };
 
     // page routing
@@ -66,11 +69,12 @@ module.exports = function (app, dir_path, db, express) {
             Model: db.models.Article,
             Page: db.models.Page,
             Pagetype: db.models.Pagetype,
-            page_type: 'Article',
+            page_type: 'article',
             limit: '20'
         };
         var bundleElement = {
             Model: db.models.Article,
+            Page: db.models.Page,
             Element_type: db.models.Element_type,
             Element: db.models.Element
         };
@@ -78,7 +82,7 @@ module.exports = function (app, dir_path, db, express) {
         var articleRest = new ModelRest(bundleModel);
         var elementRest = new ElementRest(bundleElement);
 
-        router.use('/:page_id/element', elementRouter);
+        router.use('/:model_id/element', elementRouter);
 
         elementRouter.route('/')
             .get(elementRest.readBulk)
@@ -93,7 +97,7 @@ module.exports = function (app, dir_path, db, express) {
         router.route('/')
             .get(articleRest.readBulk);
 
-        router.route('/:page_id')
+        router.route('/:model_id')
             .get(articleRest.readOne)
             .post(articleRest.createOne)
             .put(articleRest.updateOne)
@@ -235,6 +239,42 @@ module.exports = function (app, dir_path, db, express) {
         app.use('/news', router);
     };
     */
+
+    module.setupMenuList = function (app) {
+        app.get('/menulist', function(req, res) {
+            /*db.models.Pagetype.findAll()
+                .then(function (array){
+                    if(array === null){
+                        callback("array is null");
+                    }else{
+                        res.send(array);
+                    }
+                }).catch(function (err){
+                    console.log(err);
+                });*/
+
+            res.json([
+                {title: 'Makaleler', url: '/article'},
+                {title: 'Haberler', url: '/news'}
+            ]);
+        });
+    };
+
+    module.setupElementTypeRoute = function (app) {
+
+        app.get('/element_type', function(req, res) {
+            db.models.Element_type.findAll()
+                .then(function (array){
+                    if(array === null){
+                        callback("array is null");
+                    }else{
+                        res.send(array);
+                    }
+                }).catch(function (err){
+                    console.log(err);
+                });
+        });
+    };
 
     return module;
 };
