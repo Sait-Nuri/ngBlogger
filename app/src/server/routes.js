@@ -86,7 +86,8 @@ module.exports = function (app, dir_path, db, express) {
 
         elementRouter.route('/')
             .get(elementRest.readBulk)
-            .post(elementRest.createBulk);
+            .post(elementRest.createBulk)
+            .put(elementRest.updateBulk);
 
         elementRouter.route('/:element_id')
             .get(elementRest.readOne)

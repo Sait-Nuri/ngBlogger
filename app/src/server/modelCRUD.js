@@ -4,8 +4,6 @@ function ModelCRUD(bundle) {
 
     // GET /model
     this.readBulk = function (req, res) {
-        console.log("GET /article");
-
         bundle.Model.findAll()
             .then(function (models){
                 if(models.length === 0){
@@ -24,16 +22,13 @@ function ModelCRUD(bundle) {
             });
     };
 
-    // POST /model/:id
+    // POST /model/:model_id
     this.createOne = function (req, res) {
         var model = {};
-        Object.assign(model, req.body.data);
-        //model = req.body.data;
+        var page = {};
+
         model.id = req.params.model_id;
         Object.assign(model, req.body.data);
-
-        console.log(req.body);
-        var page = {};
 
         async.waterfall([
             function find_model_type(cb) {
@@ -98,7 +93,7 @@ function ModelCRUD(bundle) {
         });
     };
 
-    // GET /model/:id
+    // GET /model/:model_id
     this.readOne = function (req, res) {
         var query = { where: {id: req.params.model_id} };
         var data = {};
@@ -150,7 +145,7 @@ function ModelCRUD(bundle) {
         });
     };
     
-    // PUT /model/:id
+    // PUT /model/:model_id
     this.updateOne = function (req, res) {
         var query = {where: {id: req.params.model_id}};
         var new_data = req.body.data;
@@ -199,7 +194,7 @@ function ModelCRUD(bundle) {
         });
     };
 
-    // DELETE /model/:id
+    // DELETE /model/:model_id
     this.deleteOne = function (req, res) {
         var query = {where: {'id': req.params.model_id}};
 
