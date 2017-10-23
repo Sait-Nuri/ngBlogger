@@ -226,14 +226,14 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
                 data: {data: $scope.getParsedElements($scope.admin.added_items)}
             };
 
-            /*//page update request
+            //page update request
             Request.request(page_update)
                 .then(function (response){
                     console.log(response.statusText);
                 })
                 .catch(function (err){
                     console.log(err);
-                });*/
+                });
 
             // updated elements request
             if($scope.admin.update_items.length > 0){

@@ -74,8 +74,6 @@ function ElementCRUD(bundle) {
         var model_id = req.params.model_id;
         var element_array = req.body.data;
 
-        console.log("page id: " + model_id);
-
         async.waterfall([
             function findModel(cb) {
                 bundle.Model.findById(model_id)
