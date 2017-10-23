@@ -99,6 +99,13 @@ app.provider('Plugin', function () {
                 method: 'GET',
                 url: ''
             }
+        },
+        {
+            type: 'ELEMENT_TYPE',
+            request: {
+                method: 'GET',
+                url: ''
+            }
         }
     ];
 

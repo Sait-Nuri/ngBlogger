@@ -17,7 +17,7 @@ app.config(["SliderProvider", "SearchProvider", "PluginProvider", function(Slide
     PluginProvider.setRequestUrl('/sacma', 'SACMA');
     PluginProvider.setRequestUrl('/geoinfo', 'GEOINFO');
     PluginProvider.setRequestUrl('/menulist', 'MENU_LIST');
-
+    PluginProvider.setRequestUrl('/element_type', 'ELEMENT_TYPE');
 }]);
 
 app.constant('Social', {

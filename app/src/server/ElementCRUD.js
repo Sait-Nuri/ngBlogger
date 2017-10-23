@@ -147,12 +147,42 @@ function ElementCRUD(bundle) {
 
         async.mapSeries(elements, function (element, cb) {
             var query = {where: {id: element.id}};
-
             bundle.Element.update(element, query)
                 .then(function (affected_row){
                     if(affected_row === 0){
                         cb("element not updated");
                     }else{
+                        cb(null);
+                    }
+                }).catch(function (err){
+                    console.log(err);
+                    cb(err);
+                });
+        }, function(err, results) {
+            if(err){
+                console.log(err);
+                res.statusCode = 400;
+                res.json({});
+            }else{
+                res.statusCode = 200;
+                res.json({});
+            }
+        });
+    };
+
+    // DELETE /model/:model_id/element
+    this.deleteBulk = function (req, res) {
+        var elements = {};
+        Object.assign(elements, req.body.data);
+
+        async.mapSeries(elements, function (element, cb) {
+            var query = {where: {id: element.id}};
+            bundle.Element.destroy(query)
+                .then(function (affected_row){
+                    if(affected_row === 0){
+                        cb("element not deleted");
+                    }else{
+
                         cb(null);
                     }
                 }).catch(function (err){
