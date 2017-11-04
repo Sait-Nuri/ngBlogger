@@ -93,7 +93,7 @@ app.controller('PluginController', ['$scope', 'Plugin', 'Request' ,function ($sc
                 {
                     route: 'home',
                     title: 'anasayfa',
-                    collapse: true,
+                    collapse: false,
                     toggle: false,
                     sublist: [
                         {'title': 'sub1'},

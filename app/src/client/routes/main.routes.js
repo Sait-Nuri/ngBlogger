@@ -43,6 +43,8 @@ app.config(['$stateProvider', '$urlRouterProvider' ,function ($stateProvider, $u
                 controller: ['$scope', 'Plugin', function ($scope, Plugin) {
                     Plugin.getContent('ARTICLE')
                         .then(function(response){
+                            console.log("article data");
+                            console.log(response.data);
                             $scope.content = response.data;
                         })
                         .catch(function(error){

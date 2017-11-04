@@ -1,10 +1,13 @@
 app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($scope, Plugin, Request) {
     $scope.admin = {
         editable: false,
+        newpage: false,
         state: 'EKLE',
-        subjects: [
-
-        ],
+        subjects: [],
+        elements: [],
+        delete_items: [],
+        update_items: [],
+        added_items: [],
         selectedSubject: undefined,
         selectedPage: undefined,
         selectedElement: undefined,
@@ -18,17 +21,8 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
             attr2: '',
             attr3: ''
         },
-        element_types: [
-            {name: 'paragraf', id: '1'},
-            {name: 'video', id: '2'},
-            {name: 'resim', id: '3'},
-            {name: 'link', id: '4'},
-            {name: 'başlık', id: '5'}
-        ],
-        elements: [],
-        delete_items: [],
-        update_items: [],
-        added_items: [],
+        element_types: [],
+
 
         // Bu sayfa yüklendiğinde çağrılması gerekir.
         getElementTypes: function () {
@@ -77,17 +71,17 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
             Request.request(request)
                 .then(function(response){
                     $scope.admin.pagelist = response.data;
-                    $scope.dumb();
+                    //$scope.dumb();
                 })
                 .catch(function(error){
                     console.log(error);
                 });
         },
         newPage: function () {
+            $scope.admin.state = 'EKLE';
+            $scope.admin.newpage = true;
             $scope.admin.resetInput();
-            $scope.admin.elements = [
-                {type_name: 'başlık', type_id: '5', attr1: '', attr2: '', attr3: '', body: ''}
-            ];
+            $scope.admin.elements.push({type_name: 'baslik', type_id: 2, attr1: '', attr2: '', attr3: '', body: ''});
             $scope.admin.selectedPage = undefined;
             $scope.admin.editable = true;
         },
@@ -130,8 +124,9 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
             $scope.admin.old_selectedElement = angular.copy($scope.admin.selectedElement);
             $scope.admin.state = 'GUNCELLE';
 
-            //console.log("input");
-            /*console.log("edit element!");
+            /*console.log("input");
+            console.log($scope.admin.input);
+            console.log("edit element!");
             console.log($scope.admin.selectedElement);*/
         },
         action: function () {
@@ -153,7 +148,7 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
                     }
                 });
             }else if($scope.admin.state === 'GUNCELLE'){
-                $scope.admin.input = {};
+                //$scope.admin.input = {};
                 $scope.admin.state = 'EKLE';
 
                 // compare objects
@@ -185,11 +180,13 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
         }
         ,
         resetInput: function () {
-            $scope.admin.input.attr1 = '';
-            $scope.admin.input.attr2 = '';
-            $scope.admin.input.attr3 = '';
-            $scope.admin.input.body = '';
-            $scope.admin.input.name = $scope.admin.defaultSelect;
+            $scope.admin.input = {
+                type_name: $scope.admin.defaultSelect,
+                body: '',
+                attr1: '',
+                attr2: '',
+                attr3: ''
+            };
         },
         update: function () {
             /*console.log("will be deleted");
@@ -275,30 +272,38 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
 
         },
         create: function () {
-            var subject_url = $scope.admin.selectedSubject.url;
-            var page_id = $scope.admin.selectedPage.id;
+            var new_model_id = $scope.random();
 
             var model_request = {
                 method: 'POST',
-                url: subject_url + '/' + page_id
+                url: $scope.admin.selectedSubject.url + '/' + new_model_id,
+                data: {data: $scope.admin.selectedPage}
             };
 
             var element_request = {
                 method: 'POST',
-                url: subject_url + '/' + page_id + '/element',
-                data: $scope.admin.elements
+                url: $scope.admin.selectedSubject.url + '/' + new_model_id + '/element',
+                data: {data: $scope.admin.elements}
             };
 
             Request.request(model_request)
                 .then(function(model_response){
-                    console.log(model_response.data);
+                    if(model_response.status !== 200){
+                        throw new Error("Server error code:" + model_response.status);
+                    }
 
-                    return Request.request(element_request);
+                    console.log('model created');
+
+                    return Request.request(element_request)
+                        .then(function (element_response){
+                            if(element_response.status !== 200){
+                                throw new Error("Server error code:" + element_response.status);
+                            }
+
+                            console.log("elements created");
+                        });
                 })
-                .then(function (element_response){
-                    console.log(element_response
-                        .data);
-                }).catch(function (err){
+                .catch(function (err){
                     console.log(err);
                 });
             //console.log("created");
@@ -324,8 +329,8 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
     };
 
     $scope.dumb = function (caller_name) {
-        //console.log(caller_name);
-        //console.log($scope.admin);
+        console.log(caller_name);
+        console.log($scope.admin);
     };
 
     $scope.compareElements = function (a, b) {
@@ -343,5 +348,13 @@ app.controller('AdminController', ['$scope', 'Plugin', 'Request' ,function ($sco
             if( key === "$$hashKey" ) {return undefined;}
             return value;
         }));
+    };
+
+    $scope.random =function () {
+        var minNumber = 10000; // The minimum number you want
+        var maxNumber = 99999; // The maximum number you want
+        var randomnumber = Math.floor(Math.random() * (maxNumber - minNumber + 1) ) + minNumber; // Generates random number
+
+        return randomnumber; // Returns false just to tidy everything up
     }
 }]);
