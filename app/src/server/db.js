@@ -140,6 +140,9 @@ function Database() {
             },
             title:{
                 type: Sequelize.TEXT
+            },
+            desc: {
+                type: Sequelize.TEXT
             }
         },{
             tableName: 'article_list'
